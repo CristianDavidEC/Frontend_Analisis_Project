@@ -10,7 +10,7 @@ export const graph = {
 
     ],
     edges: [
-        { from: 1, to: 2 , label: "Edge 1", color:'#0C4480'},
+        { from: 1, to: 2 , label: "Edge 1"},
         { from: 1, to: 3 },
         { from: 2, to: 4 },
         { from: 2, to: 3 },

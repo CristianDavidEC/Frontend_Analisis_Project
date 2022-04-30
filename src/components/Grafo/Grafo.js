@@ -33,10 +33,9 @@ function Grafo() {
             getNetwork={network => {
                 //  if you want access to vis.js network api you can set the state in a parent component using this property
             }}
-            className = "border border-primary"
         />
     );
 }
 
-export default Grafo;
+export {Grafo};
 
