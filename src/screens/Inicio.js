@@ -1,7 +1,7 @@
 import React from 'react'
 // Componets //
 import { Grafo } from '../components/Grafo/Grafo';
-import BotonNuevoGrafo from '../components/BotonNuevoGrafo';
+import BotonNuevoGrafo from '../components/ModalNuevoGrafo';
 
 
 function Inicio() {
@@ -15,7 +15,8 @@ function Inicio() {
                         </div>
                     </div>
                     <div className = 'col text-center'>
-                        <h2 className='mt-5'>Software de manejo de grafos</h2>
+                        <h2 className='mt-5'>Software de manejo de grafos</h2
+                        >
                         <div className = 'mt-5'>
                             <BotonNuevoGrafo />
                         </div>
