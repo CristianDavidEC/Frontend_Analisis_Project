@@ -6,12 +6,12 @@ const AppPage = () => {
     <>
       <nav className="navbar navbar-dark bg-dark">
         <div className="container-fluid">
-          <Link className="navbar-brand">
+          <a className="navbar-brand">
               |-|
-            </Link>
-          <Link className="navbar-brand">
+            </a>
+          <a className="navbar-brand">
             GraPhico
-          </Link>
+          </a>
         </div>
       </nav>
       <div className="container">

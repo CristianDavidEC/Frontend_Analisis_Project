@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 
 // Routes //
-// import Home from "../screens/Inicio";
+import Home from "../screens/Inicio";
 import InitPage from "../views/InitPage";
 import Opciones from "../views/external/Opciones";
 import Login from "../views/external/Login";
@@ -22,7 +22,7 @@ function App() {
           <Route path="opciones" element={<Opciones />} />
         </Route>
         <Route path="app" element={<AppPage />}>
-          {/* <Route path="" element={<Home />}></Route> */}
+          <Route path="" element={<Home />}></Route>
           <Route path="inicio" element={<Inicio />}></Route>
           <Route path="aplicacion" element={<Aplicacion />}></Route>
           <Route path="analizar" element={<Analizar />}></Route>
