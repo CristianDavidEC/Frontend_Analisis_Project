@@ -1,9 +1,19 @@
 {
-  "plugins": ["disable"],
+  "plugins": ["disable","jsx-a11y"],
+  "rules": {
+    "semi": 2,
+    "jsx-a11y/anchor-is-valid": "off",
+    "jsx-a11y/anchor-has-content": "off"
+    },
   "processor": "disable/disable",
   "extends": ["plugin:react/recommended"],
   "parser": "@babel/eslint-parser",
   "parserOptions": {
+    "ecmaVersion": 6,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        },
     "requireConfigFile": false,
     "babelOptions": {
       "presets": ["@babel/preset-react"]

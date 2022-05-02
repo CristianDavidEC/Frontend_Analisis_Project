@@ -1,9 +1,9 @@
 import React from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import SideBar from "../../components/elementos/SideBar";
 const AppPage = () => {
   return (
-    <>
+    <div className="position-relative top-0 start-0">
       <nav className="navbar navbar-dark bg-dark">
         <div className="container-fluid">
           <a className="navbar-brand">
@@ -16,15 +16,13 @@ const AppPage = () => {
       </nav>
       <div className="container">
         <div className="row">
-          <div className="col">
             <SideBar />
-          </div>
-          <div className="col">
-            <Outlet />
-          </div>
+            <div className="col">
+              <Outlet />
+            </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
