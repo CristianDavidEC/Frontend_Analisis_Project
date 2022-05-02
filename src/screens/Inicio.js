@@ -4,7 +4,7 @@ import { Grafo } from '../components/Grafo/Grafo';
 import BotonNuevoGrafo from '../components/ModalNuevoGrafo';
 
 
-function Inicio() {
+const Home = () => {
     return (
         <>
             <div className = 'container'>
@@ -27,4 +27,4 @@ function Inicio() {
     )
 }
 
-export { Inicio } 
+export default Home;
