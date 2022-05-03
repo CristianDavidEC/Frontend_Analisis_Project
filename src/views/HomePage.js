@@ -2,6 +2,8 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import { SideBarMenu } from "../components/elementos/SideBarHome";
 import { Link } from "react-router-dom";
+import { Button } from "reactstrap";
+import { ModalNuevoGrafo } from "../components/ModalNuevoGrafo/ModalNuevoGrafo";
 
 const HomePage = () => {
   return (
@@ -9,8 +11,8 @@ const HomePage = () => {
       <nav className="navbar navbar-dark bg-dark">
         <div className="container-fluid">
           <a className="navbar-brand">
-              |-|
-            </a>
+            |-|
+          </a>
           <a className="navbar-brand">
             GraPhico
           </a>
@@ -18,14 +20,14 @@ const HomePage = () => {
       </nav>
       <div className="container">
         <div className="row">
-            <SideBarMenu />
-            <div className="col">
+          <SideBarMenu />
+          <div className="col">
             <Link to="/board" className="btn btn-dark">
               board
             </Link>
-
-              <Outlet />
-            </div>
+            <ModalNuevoGrafo></ModalNuevoGrafo>
+            <Outlet />
+          </div>
         </div>
       </div>
     </div>

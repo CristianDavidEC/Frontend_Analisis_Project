@@ -7,7 +7,6 @@ const Login = () => {
   onsubmit = () => {
     navigate("/home")
   }
-  
   return (
     <>
       <div className="container-sm  p-5 card position-absolute top-50 start-50 translate-middle">
