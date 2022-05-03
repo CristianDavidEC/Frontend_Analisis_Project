@@ -6,7 +6,7 @@ const Opciones = () => {
   return (
     <div className="container-sm p-5 card d-grid gap-3 position-absolute top-50 start-50 translate-middle">
       <button className="btn btn-primary" onClick={()=>navigate('/app')}>
-        Grafo vacío
+        Grafo vacíoc
       </button>
       <button className="btn btn-primary" onClick={()=>navigate()}>
         Importar
@@ -34,4 +34,4 @@ const Opciones = () => {
   );
 };
 
-export default Opciones;
+export { Opciones };

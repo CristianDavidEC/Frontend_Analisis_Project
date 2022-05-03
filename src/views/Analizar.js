@@ -26,4 +26,4 @@ const Analizar = () => {
   )
 }
 
-export default Analizar
+export {Analizar};

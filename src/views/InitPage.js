@@ -14,4 +14,4 @@ const InitPage = () => {
   );
 };
 
-export default InitPage;
+export {InitPage};

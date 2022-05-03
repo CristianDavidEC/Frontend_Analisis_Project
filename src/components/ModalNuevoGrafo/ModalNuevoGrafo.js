@@ -1,6 +1,5 @@
-import React from 'react'
-import Modal from 'react-modal'
-import FormularioNuevoGrafo from '../FormularioNuevoGrafo';
+import React from 'react';
+import Modal from 'react-modal';
 
 const customStyles = {
     content: {
@@ -38,7 +37,6 @@ function BotonNuevoGrafo() {
                 style={customStyles}
                 //contentLabel="Example Modal"
             >
-                <FormularioNuevoGrafo />
             </Modal>
         </div>
     )

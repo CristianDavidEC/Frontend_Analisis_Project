@@ -4,38 +4,34 @@ import "./App.css";
 
 // Routes //
 // import Home from "../screens/Inicio";
-import InitPage from "../views/InitPage";
-import Opciones from "../views/external/Opciones";
-import Login from "../views/external/Login";
-import AppPage from "../views/app/AppPage";
-import Inicio from "../views/app/views/Inicio";
-import Analizar from "../views/app/views/Analizar";
-import Aplicacion from "../views/app/views/Aplicacion";
-import Board from "../screens/board/board";
-import ViewBoard from "../screens/board/ViewBoard";
-import EditBoard from "../screens/board/EditBoard";
+import { Login } from "../views/external/Login";
+import { HomePage } from "../views/HomePage";
+import { Board } from "../views/Board";
+
+import { Tablero } from "../components/Tablero/Tablero";
+import { Aplicacion } from "../components/Aplicacion/Aplicacion";
+import { Analizar } from "../components/Analizar/Analizar";
+import { Grafo } from "../components/Grafo/Grafo";
+
 
 function App() {
   return (
     <Router>
+
       <Routes>
-        <Route path="/" element={<InitPage />} />
-        <Route path="/login">
-          <Route path="" element={<Login />} />
-          <Route path="opciones" element={<Opciones />} />
+
+        <Route path = "" element={ <Login /> }/>
+        
+        <Route path = "home" element={ <HomePage/> }>  
+        
         </Route>
-        <Route path="app" element={<AppPage />}>
-          <Route path="" element={<Inicio />}></Route>
-          <Route path="board" element={<Board />}>
-            <Route index element={<ViewBoard />}></Route>
-            <Route path="editar" element={<EditBoard />}></Route>
-          </Route>
-          <Route path="aplicacion" element={<Aplicacion />}></Route>
-          <Route path="analizar" element={<Analizar />}>
-            <Route index element={<ViewBoard />}></Route>
-          </Route>
+
+        <Route path = "board" element = { <Board/> }> 
+          <Route path = "" element = { <Tablero/> }/>
+          <Route path = "aplicacion" element = { <Aplicacion/> }/>
+          <Route path = "analizar" element = { <Analizar/> }/> 
         </Route>
-        {/* <Route path="*" element={<Navigate replace to="/" />} /> */}
+
       </Routes>
     </Router>
   );

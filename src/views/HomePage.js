@@ -1,7 +1,9 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import SideBar from "../../components/elementos/SideBar";
-const AppPage = () => {
+import { SideBarMenu } from "../components/elementos/SideBarHome";
+import { Link } from "react-router-dom";
+
+const HomePage = () => {
   return (
     <div className="position-relative top-0 start-0">
       <nav className="navbar navbar-dark bg-dark">
@@ -16,8 +18,12 @@ const AppPage = () => {
       </nav>
       <div className="container">
         <div className="row">
-            <SideBar />
+            <SideBarMenu />
             <div className="col">
+            <Link to="/board" className="btn btn-dark">
+              board
+            </Link>
+
               <Outlet />
             </div>
         </div>
@@ -26,4 +32,4 @@ const AppPage = () => {
   );
 };
 
-export default AppPage;
+export { HomePage };

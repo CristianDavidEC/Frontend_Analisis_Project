@@ -1,11 +1,11 @@
 import React from 'react'
-import { Outlet } from 'react-router-dom'
+import { Grafo } from '../Grafo/Grafo'
 
 const Analizar = () => {
   return (
     <div className='container row'>
         <h1>Analizar grafo</h1>
-        <Outlet/>
+        <Grafo />
         <div className='container row'>
             <div className='col'>
                 <select>
@@ -26,4 +26,4 @@ const Analizar = () => {
   )
 }
 
-export default Analizar
+export { Analizar };
