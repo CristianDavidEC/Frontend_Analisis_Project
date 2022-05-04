@@ -1,7 +1,6 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Graph from "react-graph-vis";
 import { graph } from './Api';
-
 
 const Grafo = () => {
     const [evento, setEvento] = useState();
@@ -13,9 +12,9 @@ const Grafo = () => {
         edges: {
             color: "#000000"
         },
+        
         height: "100%",
         width: "100%",
-
     };
 
     //Evetos que peude manejar el grafo
@@ -35,7 +34,7 @@ const Grafo = () => {
                 getNetwork={network => {
                     //  if you want access to vis.js network api you can set the state in a parent component using this property
                 }}
-            
+
             />
             <p>{evento}</p>
         </div>

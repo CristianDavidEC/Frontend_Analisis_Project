@@ -1,8 +1,17 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
+import { elementContex } from '../../app/ContextState/Estado';
 const FormularioGrafo = ({ closeModal }) => {
+
+    //Estado del contexto del grafo
+    const {
+        estadoGrafo,
+        setEstadoGrafo
+    } = React.useContext(elementContex);
+
+    const [estadoInput, setInput] = React.useState({});
+
     const navigate = useNavigate();
-    let grafoJson;
 
     const leerArchivo = (event) => {
         const file = event.target.files[0];
@@ -12,10 +21,16 @@ const FormularioGrafo = ({ closeModal }) => {
             reader.onload = function () {
                 const text = reader.result;
                 const obj = JSON.parse(text);
-                console.log(obj);
-                grafoJson = obj;
+                setInput(obj);
             }
         }
+    }
+
+    const setGrafo = () => {
+        console.log(estadoInput);
+        console.log(estadoGrafo);
+        setEstadoGrafo(estadoInput);
+        console.log(estadoGrafo);
     }
 
     return (
@@ -28,13 +43,19 @@ const FormularioGrafo = ({ closeModal }) => {
                 </button>
             </div>
             <div className="modal-body d-grid gap-3">
-                <button className="btn btn-primary" onClick={() => navigate('/board')}>
+                <button className="btn btn-primary" onClick={() => {
+                    navigate('/board')
+                }
+                }>
                     Grafo vacío
                 </button>
 
-
-                <button className="btn btn-primary" onClick=
-                    {() => navigate('/board')}>
+                <button className="btn btn-primary" 
+                        onClick={() =>
+                        {
+                            setGrafo();
+                            navigate('/board')
+                        }}>
                     Importar
                 </button>
                 <div class="custom-file">

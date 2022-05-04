@@ -2,8 +2,8 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 
+import { ElementEstado } from "./ContextState/Estado";
 // Routes //
-// import Home from "../screens/Inicio";
 import { Login } from "../views/external/Login";
 import { HomePage } from "../views/principal/HomePage";
 import { Board } from "../views/Board";
@@ -18,26 +18,25 @@ import { AcercaDe } from "../views/principal/AcercaDe";
 
 function App() {
   return (
-    <Router>
+    <ElementEstado>
+      <Router>
+        <Routes>
+          <Route path="" element={<Login />} />
 
-      <Routes>
+          <Route path="home" element={<HomePage />}>
+            <Route path="" element={<ListaGrafos />} />
+            <Route path="ayuda" element={<Ayuda />} />
+            <Route path="acerca_de" element={<AcercaDe />} />
+          </Route>
 
-        <Route path = "" element={ <Login /> }/>
-        
-        <Route path = "home" element={ <HomePage/> }>  
-          <Route path = "" element = { <ListaGrafos/> }/>
-          <Route path = "ayuda" element = { <Ayuda/> }/>
-          <Route path = "acerca_de" element = { <AcercaDe/> }/>
-        </Route>
-
-        <Route path = "board" element = { <Board/> }> 
-          <Route path = "" element = { <Tablero/> }/>
-          <Route path = "aplicacion" element = { <Aplicacion/> }/>
-          <Route path = "analizar" element = { <Analizar/> }/> 
-        </Route>
-
-      </Routes>
-    </Router>
+          <Route path="board" element={<Board />}>
+            <Route path="" element={<Tablero />} />
+            <Route path="aplicacion" element={<Aplicacion />} />
+            <Route path="analizar" element={<Analizar />} />
+          </Route>
+        </Routes>
+      </Router>
+    </ElementEstado>
   );
 }
 export default App;
