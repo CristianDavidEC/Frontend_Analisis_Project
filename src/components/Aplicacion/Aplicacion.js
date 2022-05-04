@@ -4,8 +4,8 @@ import { Grafo } from "../Grafo/Grafo";
 
 const Aplicacion = () => {
   return (
-    <div className='container row'>
-        <h1>Aplicacion del grafo</h1>
+    <div className='container row mt-3'>
+        <h3>Aplicacion del grafo</h3>
         <Grafo />
     </div>
   )

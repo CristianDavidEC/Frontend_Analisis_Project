@@ -12,18 +12,17 @@ const Board = () => {
             <Link to="../home" className="btn btn-dark">
               Home
             </Link>
-            </a>
+          </a>
           <a className="navbar-brand">
             GraPhico
           </a>
         </div>
       </nav>
-      <div className="container">
-        <div className="row">
-            <SideBarGrafo />
-            <div className="col">
-              <Outlet />
-            </div>
+
+      <div className="row">
+        <SideBarGrafo />
+        <div className="col">
+          <Outlet />
         </div>
       </div>
     </div>

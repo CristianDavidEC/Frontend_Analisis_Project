@@ -5,8 +5,8 @@ import { useNavigate } from "react-router-dom";
 const SideBarGrafo = () => {
     
     return (
-      <div className="col-3 mt-3 start-0">
-        <div className="card p-4">
+      <div className="col-2 mx-3 mt-3 start-0">
+        <div className="card">
           <div className="container d-grid gap-1 card-body">
             <Link to="../home" className="btn btn-dark">
               Home

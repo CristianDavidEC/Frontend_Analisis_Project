@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Graph from "react-graph-vis";
 import { graph } from './Api';
 
 
-function Grafo() {
+const Grafo = () => {
+    const [evento, setEvento] = useState();
     //Ajustes del grafo y el canva
     const options = {
         layout: {
@@ -34,7 +35,9 @@ function Grafo() {
                 getNetwork={network => {
                     //  if you want access to vis.js network api you can set the state in a parent component using this property
                 }}
+            
             />
+            <p>{evento}</p>
         </div>
     );
 }

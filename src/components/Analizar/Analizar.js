@@ -3,8 +3,8 @@ import { Grafo } from '../Grafo/Grafo'
 
 const Analizar = () => {
   return (
-    <div className='container row'>
-        <h1>Analizar grafo</h1>
+    <div className='container row mt-3'>
+        <h3>Analizar grafo</h3>
         <Grafo />
         <div className='container row'>
             <div className='col'>

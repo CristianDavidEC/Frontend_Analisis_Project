@@ -1,9 +1,9 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import { SideBarMenu } from "../components/elementos/SideBarHome";
+import { SideBarMenu } from "../../components/elementos/SideBarHome";
 import { Link } from "react-router-dom";
 import { Button } from "reactstrap";
-import { ModalNuevoGrafo } from "../components/ModalNuevoGrafo/ModalNuevoGrafo";
+import { ModalNuevoGrafo } from "../../components/ModalNuevoGrafo/ModalNuevoGrafo";
 
 const HomePage = () => {
   return (
@@ -18,18 +18,15 @@ const HomePage = () => {
           </a>
         </div>
       </nav>
-      <div className="container">
+      
         <div className="row">
           <SideBarMenu />
           <div className="col">
-            <Link to="/board" className="btn btn-dark">
-              board
-            </Link>
             <ModalNuevoGrafo></ModalNuevoGrafo>
             <Outlet />
           </div>
         </div>
-      </div>
+      
     </div>
   );
 };
