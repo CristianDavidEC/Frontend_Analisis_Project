@@ -1,7 +1,7 @@
 import React from "react";
 
 const elementContex = React.createContext ();
-function ElementEstado (props){ 
+function ElementEstado ({children}){ 
 
     const [estadoGrafo, setEstadoGrafo] = React.useState({
         name: '',
@@ -16,7 +16,7 @@ function ElementEstado (props){
             setEstadoGrafo
         }}>
             {/**Envuelve todos los componenetes que vayan ausar en consumer */} 
-            {props.children}
+            {children}
         </elementContex.Provider> 
     );
 }
