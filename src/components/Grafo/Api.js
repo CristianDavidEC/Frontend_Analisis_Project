@@ -10,11 +10,11 @@ export const graph = {
 
     ],
     edges: [
-        { from: 1, to: 2 , label: "Edge 1"},
+        { from: 1, to: 2 , label: 85},
         { from: 1, to: 3 },
         { from: 2, to: 4 },
         { from: 2, to: 3 },
-        { from: 2, to: 1 },
+        { from: 2, to: 1, label: 53 },
         { from: 1, to: 5 },
         { from: 7, to: 2 },
         { from: 6, to: 4 },

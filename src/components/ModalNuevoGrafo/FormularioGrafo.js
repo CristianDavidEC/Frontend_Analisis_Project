@@ -4,14 +4,15 @@ import { elementContex } from '../../app/ContextState/Estado';
 
 const FormularioGrafo = ({ closeModal }) => {
     //Estado del contexto del grafo
-    const {
-        setEstadoGrafo
-    } = React.useContext(elementContex);
-
+    const {setEstadoGrafo} = React.useContext(elementContex);
+    
+    //Estado del formulario
     const [estadoInput, setInput] = React.useState(null);
 
+    //Estado de la nvegacoion y manejo de rutas
     const navigate = useNavigate();
 
+    //Lee la entrada de archivo y convierte a Json
     const leerArchivo = (event) => {
         const file = event.target.files[0];
         if (file) {
@@ -25,14 +26,23 @@ const FormularioGrafo = ({ closeModal }) => {
         }
     }
 
+    //Establece el nuevo estado del Grafo con el objeto cargado
     const setGrafo = () => {
         if (estadoInput){
-            console.log(estadoInput);
             setEstadoGrafo(estadoInput);
             navigate('/board')
         }else {
             alert('No selecciono ningun archivo')
         }
+    }
+
+    //Inicializa el grafo para el boton grafo Vacio
+    const grafoVacio = () => {
+        setEstadoGrafo({
+            name: '',
+            nodes: []
+        });
+        navigate('/board')
     }
 
     return (
@@ -44,7 +54,7 @@ const FormularioGrafo = ({ closeModal }) => {
                 </button>
             </div>
             <div className="modal-body d-grid gap-3">
-                <button className="btn btn-primary" onClick={()=> navigate('/board')}>
+                <button className="btn btn-primary" onClick={grafoVacio}>
                     Grafo vacío
                 </button>
 
@@ -84,12 +94,7 @@ const FormularioGrafo = ({ closeModal }) => {
                     </div>
                 </div>
             </div>
-            {/* {<div className="modal-footer">
-                {/<button type="button" className="btn btn-primary">Iniciar Grafo</button}
-                <button type="button" className="btn btn-secondary" data-dismiss="modal" onClick={closeModal}>Cancelar</button>
-            </div>} */}
         </div>
-
     )
 }
 export { FormularioGrafo };

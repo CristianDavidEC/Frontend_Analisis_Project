@@ -1,5 +1,5 @@
 {
-    "name": "Grafo 1",
+    "name": "Grafo 2",
     "nodes": [
       {
         "id": 1,
@@ -12,12 +12,12 @@
             "distance": 120
           },
           {
-            "nodeId": 4,
+            "nodeId": 5,
             "distance": 87
           },
           {
-            "nodeId": 5,
-            "distance": 101
+            "nodeId": 6,
+            "distance": 120
           }
         ]
       },
@@ -32,12 +32,8 @@
             "distance": 120
           },
           {
-            "nodeId": 7,
-            "distance": 45
-          },
-          {
-            "nodeId": 3,
-            "distance": 17
+            "nodeId": 5,
+            "distance": 30
           }
         ]
       },
@@ -48,40 +44,45 @@
         "type": "object",
         "linkedTo": [
           {
-            "nodeId": 5,
-            "distance": 86
-          },
-          {
             "nodeId": 2,
-            "distance": 17
-          },
-          {
-            "nodeId": 9,
-            "distance": 15
+            "distance": 86
           }
         ]
       },
       {
-        "id": 12,
-        "label": "N12",
+        "id": 4,
+        "label": "N4",
         "data": {},
         "type": "function",
         "linkedTo": [
           {
-            "nodeId": 14,
+            "nodeId": 1,
             "distance": 120
           },
           {
-            "nodeId": 17,
+            "nodeId": 5,
+            "distance": 30
+          },
+          {
+            "nodeId": 5,
+            "distance": 30
+          }
+
+        ]
+      },
+      {
+        "id": 5,
+        "label": "N5",
+        "data": {},
+        "type": "function",
+        "linkedTo": [
+          {
+            "nodeId": 1,
             "distance": 87
           },
           {
-            "nodeId": 11,
-            "distance": 101
-          },
-          {
-            "nodeId": 2,
-            "distance": 30
+            "nodeId": 5,
+            "distance": 0
           }
 
         ]

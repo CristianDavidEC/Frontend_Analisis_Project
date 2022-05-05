@@ -1,11 +1,11 @@
 import React from 'react'
-import { Grafo } from '../Grafo/Grafo'
+import { GrafoUI } from '../Grafo/GrafoUI'
 
 const Analizar = () => {
   return (
     <div className='container row mt-3'>
         <h3>Analizar grafo</h3>
-        <Grafo />
+        <GrafoUI />
         <div className='container row'>
             <div className='col'>
                 <select>
