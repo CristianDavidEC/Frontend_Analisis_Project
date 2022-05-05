@@ -24,7 +24,7 @@ const Grafo = () => {
                 bordes.push({
                     from: node.id,
                     to: link.nodeId,
-                    label: link.distance
+                    label:''+link.distance
                 });
             });
             return {
@@ -62,9 +62,10 @@ const Grafo = () => {
         <div className="border border-primary border-4 m-3 p-1 spaceGraph">
             <Graph
                 graph={grafoUI}
-                options={options}
-                events={events}
-                getNetwork={network => {
+                //graph = {graph}
+                options = {options}
+                events = {events}
+                getNetwork = {network => {
                     //  if you want access to vis.js network api you can set the state in a parent component using this property
                 }}
             />
