@@ -3,7 +3,7 @@ import { IoMdAddCircleOutline } from "react-icons/io";
 import { MdEdit, MdDelete, MdAddCircle } from "react-icons/md";
 
 
-const OpcionesGrafo = () => {
+const OpcionesGrafoUI = () => {
     return (
         <div class='container col  mt-3'>
             <h4>Opciones de Nodos</h4>
@@ -60,4 +60,4 @@ const OpcionesGrafo = () => {
     );
 };
 
-export { OpcionesGrafo };
+export { OpcionesGrafoUI };

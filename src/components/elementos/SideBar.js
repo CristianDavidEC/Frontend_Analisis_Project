@@ -22,7 +22,7 @@ const SideBarGrafo = () => {
 
           <Dropdown className = "d-block">
             <Dropdown.Toggle id="dropdown-autoclose-true" className="w-100">
-               Guardado 
+               Guardar 
             </Dropdown.Toggle>
             <Dropdown.Menu>
               <Dropdown.Item href="#">Guardar</Dropdown.Item>
