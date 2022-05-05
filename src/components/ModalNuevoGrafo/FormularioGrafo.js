@@ -1,14 +1,14 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import { elementContex } from '../../app/ContextState/Estado';
-const FormularioGrafo = ({ closeModal }) => {
 
+const FormularioGrafo = ({ closeModal }) => {
     //Estado del contexto del grafo
     const {
         setEstadoGrafo
     } = React.useContext(elementContex);
 
-    const [estadoInput, setInput] = React.useState({});
+    const [estadoInput, setInput] = React.useState(null);
 
     const navigate = useNavigate();
 
@@ -26,14 +26,19 @@ const FormularioGrafo = ({ closeModal }) => {
     }
 
     const setGrafo = () => {
-        setEstadoGrafo(estadoInput);
+        if (estadoInput){
+            console.log(estadoInput);
+            setEstadoGrafo(estadoInput);
+            navigate('/board')
+        }else {
+            console.log('No se cargaron los datos');
+        }
     }
 
     return (
         <div className="modal-content">
             <div className="modal-header">
                 <h5 className="modal-title">Opciones de Creacion de grafos</h5>
-
                 <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={closeModal}>
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -47,11 +52,7 @@ const FormularioGrafo = ({ closeModal }) => {
                 </button>
 
                 <button className="btn btn-primary" 
-                        onClick={() =>
-                        {
-                            setGrafo();
-                            navigate('/board')
-                        }}>
+                        onClick={setGrafo}>
                     Importar
                 </button>
                 <div class="custom-file">
@@ -94,5 +95,4 @@ const FormularioGrafo = ({ closeModal }) => {
 
     )
 }
-
 export { FormularioGrafo };
