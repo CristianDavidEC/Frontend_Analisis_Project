@@ -35,6 +35,14 @@ const FormularioGrafo = ({ closeModal }) => {
         }
     }
 
+    const grafoVacio = () => {
+        setEstadoGrafo({
+            name: '',
+            nodes: []
+        });
+        navigate('/board')
+    }
+
     return (
         <div className="modal-content">
             <div className="modal-header">
@@ -44,7 +52,7 @@ const FormularioGrafo = ({ closeModal }) => {
                 </button>
             </div>
             <div className="modal-body d-grid gap-3">
-                <button className="btn btn-primary" onClick={()=> navigate('/board')}>
+                <button className="btn btn-primary" onClick={grafoVacio}>
                     Grafo vacío
                 </button>
 
