@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
 import Graph from "react-graph-vis";
-import { graph } from './Api';
 import { elementContex } from '../../app/ContextState/Estado';
 
-const Grafo = () => {
+const GrafoUI = () => {
     //State
     const {
         estadoGrafo,
         setEstadoGrafo
     } = React.useContext(elementContex);
 
+    //Estado de los Nodos del Grafo
     const { nodes } = estadoGrafo;
+
+    //Estado de los eventos del GrafoUI
     const [evento, setEvento] = useState();
 
     let bordes = []
@@ -35,8 +37,7 @@ const Grafo = () => {
         edges: []
     }
     grafoUI.edges = bordes;
-    console.log(grafoUI)
-
+    
     //Ajustes del grafo y el canva
     const options = {
         layout: {
@@ -57,7 +58,7 @@ const Grafo = () => {
         }
     };
 
-    //Renderizado el elemento grafo
+    //Renderizado el elemento grafoUI
     return (
         <div className="border border-primary border-4 m-3 p-1 spaceGraph">
             <Graph
@@ -74,5 +75,5 @@ const Grafo = () => {
     );
 }
 
-export { Grafo };
+export { GrafoUI };
 

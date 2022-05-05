@@ -1,12 +1,12 @@
 import React from 'react';
-import { Grafo } from "../Grafo/Grafo";
+import { GrafoUI } from "../Grafo/GrafoUI";
 
 
 const Tablero = () => {
   return (
-    <div className='container row mt-3 p-0'>
+    <div className='container col mt-3 p-0'>
         <h4>Tablero</h4>
-        <Grafo />
+        <GrafoUI />
     </div>
   )
 }

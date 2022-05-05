@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { DropdownButton, Dropdown } from "react-bootstrap";
 
 const SideBarGrafo = () => {
-
   return (
     <div className="col-2 mx-3 mt-3">
       <div className="card">
@@ -41,9 +40,6 @@ const SideBarGrafo = () => {
               <Dropdown.Item href="#">Excel</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
-
-          
-
         </div>
       </div>
     </div>
