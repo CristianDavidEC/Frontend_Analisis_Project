@@ -10,7 +10,7 @@ const Grafo = () => {
         setEstadoGrafo
     } = React.useContext(elementContex);
 
-    const { nodes, name } = estadoGrafo;
+    const { nodes } = estadoGrafo;
     const [evento, setEvento] = useState();
 
     let bordes = []

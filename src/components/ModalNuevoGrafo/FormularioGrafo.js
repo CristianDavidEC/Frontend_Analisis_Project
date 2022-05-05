@@ -31,7 +31,7 @@ const FormularioGrafo = ({ closeModal }) => {
             setEstadoGrafo(estadoInput);
             navigate('/board')
         }else {
-            console.log('No se cargaron los datos');
+            alert('No selecciono ningun archivo')
         }
     }
 
@@ -44,10 +44,7 @@ const FormularioGrafo = ({ closeModal }) => {
                 </button>
             </div>
             <div className="modal-body d-grid gap-3">
-                <button className="btn btn-primary" onClick={() => {
-                    navigate('/board')
-                }
-                }>
+                <button className="btn btn-primary" onClick={()=> navigate('/board')}>
                     Grafo vacío
                 </button>
 

@@ -3,7 +3,10 @@ import React from "react";
 const elementContex = React.createContext ();
 function ElementEstado (props){ 
 
-    const [estadoGrafo, setEstadoGrafo] = React.useState('');
+    const [estadoGrafo, setEstadoGrafo] = React.useState({
+        name: '',
+        nodes: []
+    });
 
     //Este es el Provider
     //En el value van todas las propiedades y estados que queramos compartir
