@@ -5,7 +5,6 @@ const FormularioGrafo = ({ closeModal }) => {
 
     //Estado del contexto del grafo
     const {
-        estadoGrafo,
         setEstadoGrafo
     } = React.useContext(elementContex);
 
@@ -27,10 +26,7 @@ const FormularioGrafo = ({ closeModal }) => {
     }
 
     const setGrafo = () => {
-        console.log(estadoInput);
-        console.log(estadoGrafo);
         setEstadoGrafo(estadoInput);
-        console.log(estadoGrafo);
     }
 
     return (

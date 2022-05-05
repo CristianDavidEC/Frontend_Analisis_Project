@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 import { SideBarGrafo } from "../components/elementos/SideBar";
 import { Link } from "react-router-dom";
 
+
 const Board = () => {
   return (
     <div className="position-relative top-0 start-0">

@@ -1,9 +1,20 @@
 import React, { useState } from 'react';
 import Graph from "react-graph-vis";
-import { graph } from './Api';
+//import { graph } from './Api';
+import { elementContex } from '../../app/ContextState/Estado';
 
 const Grafo = () => {
-    const [evento, setEvento] = useState();
+    const {
+        estadoGrafo,
+        setEstadoGrafo
+    } = React.useContext(elementContex);
+
+    const { nodes } = estadoGrafo;
+
+    console.log(estadoGrafo.nodes);
+    //TODO:Mapear el grafo del Json para que pueda ser renderizado por el componene de Vis que lo muestra
+        
+const [evento, setEvento] = useState();
     //Ajustes del grafo y el canva
     const options = {
         layout: {
@@ -12,7 +23,7 @@ const Grafo = () => {
         edges: {
             color: "#000000"
         },
-        
+
         height: "100%",
         width: "100%",
     };
