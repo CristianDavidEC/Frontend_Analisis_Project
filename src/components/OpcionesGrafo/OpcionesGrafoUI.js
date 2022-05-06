@@ -362,4 +362,4 @@ const OpcionesGrafo = ({
   );
 };
 
-export { OpcionesGrafo };
+export { OpcionesGrafoUI };

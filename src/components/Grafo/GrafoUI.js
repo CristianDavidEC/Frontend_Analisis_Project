@@ -3,6 +3,10 @@ import Graph from "react-graph-vis";
 import { elementContex } from "../../app/ContextState/Estado";
 import ElGrafo from "../../ensayo/ElGrafo";
 
+/** 
+ * GrafoUI se encarga de la renderizacion de el grafo presente
+ * en el estado actual del contexto.
+ * */ 
 const GrafoUI = () => {
   //State
   const { estadoGrafo, setEstadoGrafo } = React.useContext(elementContex);
