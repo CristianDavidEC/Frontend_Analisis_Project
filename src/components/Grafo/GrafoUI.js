@@ -34,7 +34,7 @@ const GrafoUI = () => {
       });
       return {
         id: node.id,
-        label: node.label,
+        label: node.id +':'+ node.label,
       };
     }),
     edges: [],

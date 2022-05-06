@@ -8,12 +8,18 @@ function ElementEstado ({children}){
         nodes: []
     });
 
+    const buscarNodo = (id) => {
+        const {nodes} = estadoGrafo;
+        return nodes.findIndex(nodo => nodo.id === id);
+    }
+
     //Este es el Provider
     //En el value van todas las propiedades y estados que queramos compartir
     return (
         <elementContex.Provider value = {{
             estadoGrafo,
-            setEstadoGrafo
+            setEstadoGrafo,
+            buscarNodo
         }}>
             {/**Envuelve todos los componenetes que vayan ausar en consumer */} 
             {children}

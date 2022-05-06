@@ -2,7 +2,8 @@ import React from "react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { MdEdit, MdDelete, MdAddCircle } from "react-icons/md";
-import { FormularioNodos } from "./OpcionesNodos";
+import { FormularioNodos } from "./FomularioNodos";
+import { FormulariAristas } from "./FormularioAristas";
 
 const OpcionesGrafo = () => {
     //Estado del formulario
@@ -18,8 +19,8 @@ const OpcionesGrafo = () => {
 
     return (
         <div className="col">
-            {/* CRUD de nodo */}
-            <div className="row d-flex justify-content-around">
+            {/* Botnotes CRUD de nodo */}
+            <div className="row d-flex justify-content-around mt-3">
                 <h4>Opciones de Nodos</h4>
                 <button
                     className="col-2 btn btn-primary"
@@ -48,14 +49,54 @@ const OpcionesGrafo = () => {
             </div>
             {camposActiveNodo ? (
                 <FormularioNodos
-                    handleSubmit = {handleSubmit}
-                    register = {register}
-                    reset = {reset}
-                    setCamposActiveNodo = {setCamposActiveNodo}
+                    handleSubmit={handleSubmit}
+                    register={register}
+                    reset={reset}
                 />
             ) : (
                 <></>
             )}
+
+            {/* Crud de Aristas */}
+            <div className="row d-flex justify-content-around mt-4">
+                <h4>Opciones de Aristas</h4>
+                <button
+                    className="col-2 btn btn-primary"
+                    type="button"
+                    onClick={() => {
+                        setCamposActiveArista(!camposActiveArista);
+                    }}
+                >
+                    {" "}
+                    <MdAddCircle />{" "}
+                </button>
+                <button
+                    className="col-2 btn btn-warning"
+                    type="button"
+                    onClick={() => {
+                        // addNodo();
+                        setCamposActiveArista(!camposActiveArista);
+                    }}
+                >
+                    {" "}
+                    <MdEdit />{" "}
+                </button>
+                <button className="col-2 btn btn-danger" type="button">
+                    <MdDelete />
+                </button>
+            </div>
+            {camposActiveArista ? (
+                <FormulariAristas
+                    handleSubmit={handleSubmit}
+                    register={register}
+                    reset={reset}
+                />
+            ) : (
+                <></>
+            )}
+
+
+
         </div>
     );
 }

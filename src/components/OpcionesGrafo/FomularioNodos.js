@@ -1,14 +1,26 @@
 import React from "react";
+import { elementContex } from "../../app/ContextState/Estado";
 
-const FormularioNodos = ({ handleSubmit, register, reset, setCamposActiveNodo }) => {
+const FormularioNodos = ({ handleSubmit, register, reset}) => {
 
-    const onSubmitNodo = (data) => {
-        console.log(data);
+    const { estadoGrafo, setEstadoGrafo } = React.useContext(elementContex);
+
+    const agregarNodo = (nodo) => {
+        let nodoNew = {
+            "id": nodo.id,
+            "label": nodo.label,
+            "data": {},
+            "type": " ",
+            "linkedTo": []
+        }
+        let grafoActual = {... estadoGrafo};
+        grafoActual.nodes.push(nodoNew);
+        setEstadoGrafo(grafoActual);
         reset();
     }
 
     return (
-        <form onSubmit={handleSubmit(onSubmitNodo)}>
+        <form onSubmit={handleSubmit(agregarNodo)}>
             <div className="row p-2">
                 <div className="col form-group">
                     <label htmlFor="id_nodo">id</label>
@@ -18,7 +30,7 @@ const FormularioNodos = ({ handleSubmit, register, reset, setCamposActiveNodo })
                         className="form-control"
                         aria-label=""
                         aria-describedby="basic-addon1"
-                        {...register(`nodo.id`, {
+                        {...register(`id`, {
                             valueAsNumber: true,
                         })}
                     />
@@ -31,7 +43,7 @@ const FormularioNodos = ({ handleSubmit, register, reset, setCamposActiveNodo })
                         className="form-control"
                         aria-label=""
                         aria-describedby="basic-addon1"
-                        {...register(`nodo.label`)}
+                        {...register(`label`)}
                     />
                 </div>
             </div>
@@ -39,8 +51,7 @@ const FormularioNodos = ({ handleSubmit, register, reset, setCamposActiveNodo })
                 <button
                     className="col btn btn-success align-self-center"
                     type="submit"
-                >
-                    Guardar
+                > Guardar
                 </button>
             </div>
         </form>

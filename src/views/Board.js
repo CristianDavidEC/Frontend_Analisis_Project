@@ -2,7 +2,6 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import { SideBarGrafo } from "../components/elementos/SideBar";
 import { Link } from "react-router-dom";
-import { OpcionesGrafoUI } from "../components/OpcionesGrafo/OpcionesGrafoUI";
 import { OpcionesGrafo } from "../components/OpcionesGrafo/OpcionesGrafo";
 
 
