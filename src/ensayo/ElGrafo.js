@@ -14,6 +14,7 @@ const ElGrafo = ({ grafo }) => {
     reset,
     formState: { errors },
   } = useForm();
+
   const graphRef = React.createRef();
   const [state, setState] = useState({
     options: {
