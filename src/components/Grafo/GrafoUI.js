@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Graph from "react-graph-vis";
 import { elementContex } from "../../app/ContextState/Estado";
-import ElGrafo from "../../ensayo/ElGrafo";
 import { opciones } from "./AjustesGrafo";
 
 /** 
@@ -19,6 +18,7 @@ const GrafoUI = () => {
   const [evento, setEvento] = useState();
   // const [grafoActual, setGrafo] = useState({ nodes: [], edges: [] });
   let bordes = [];
+  
   /**
    * Mapea los nosos del estadoGrafo para darle el formato necesario
    * para renderizar en componente
@@ -56,15 +56,6 @@ const GrafoUI = () => {
             }}
           />
         </div>
-        {/*<div className="col-4">
-          <OpcionesGrafoUI
-            addNodo={addNew}
-            addArista={addNewArista}
-            nodos={[...state.graph.nodes]}
-            register={register}
-            handleSubmit={handleSubmit}
-          />
-          </div>*/}
       </div>
     </div>
   );

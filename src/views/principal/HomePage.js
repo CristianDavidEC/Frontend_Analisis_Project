@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 import { SideBarMenu } from "../../components/elementos/SideBarHome";
 import { elementContex } from "../../app/ContextState/Estado";
 import { ModalNuevoGrafo } from "../../components/ModalNuevoGrafo/ModalNuevoGrafo";
-
+import { GrGraphQl } from "react-icons/gr";
 const HomePage = () => {
 
   return (
@@ -12,7 +12,7 @@ const HomePage = () => {
       <nav className="navbar navbar-dark bg-dark">
         <div className="container-fluid">
           <a className="navbar-brand">
-            |-|
+            <GrGraphQl style={{fontSize: '40px'}}/>
           </a>
           <a className="navbar-brand">
             GraPhico

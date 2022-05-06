@@ -7,7 +7,10 @@ const FormulariAristas = ({ handleSubmit, register, reset }) => {
 
     const { nodes } = estadoGrafo;
 
-    // Agrega una nueva arista entre dos nodos
+    /**
+     * Agrega una nueva arista entre dos nodos y modifica
+     * 
+     *  */ 
     const agregarArista = (arista) => {
         const { from } = arista;
 

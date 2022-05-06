@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 import { SideBarGrafo } from "../components/elementos/SideBar";
 import { Link } from "react-router-dom";
 import { OpcionesGrafo } from "../components/OpcionesGrafo/OpcionesGrafo";
+import { GrGraphQl } from "react-icons/gr";
 
 
 const Board = () => {
@@ -12,7 +13,7 @@ const Board = () => {
         <div className="container-fluid">
           <a className="navbar-brand">
             <Link to="../home" className="btn btn-dark">
-              Home
+              <GrGraphQl style={{fontSize: '40px'}}/>
             </Link>
           </a>
           <a className="navbar-brand">
@@ -27,7 +28,6 @@ const Board = () => {
           <Outlet />
         </div>
         <div className="col">
-          {/*<OpcionesGrafoUI />*/}
           <OpcionesGrafo />
         </div>
       </div>
