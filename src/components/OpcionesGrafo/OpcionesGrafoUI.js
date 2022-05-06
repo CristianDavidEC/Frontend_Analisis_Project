@@ -14,7 +14,7 @@ import { MdEdit, MdDelete, MdAddCircle } from "react-icons/md";
  * @param {*} handleSubmit funcion de control para la data del register guardar nodo o arista
  * @returns
  */
-const OpcionesGrafo = ({
+const OpcionesGrafoUI = ({
   addNodo,
   addArista,
   nodos,

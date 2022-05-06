@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { OpcionesGrafo } from "../components/OpcionesGrafo/OpcionesGrafo";
+import { OpcionesGrafoUI } from "../components/OpcionesGrafo/OpcionesGrafoUI";
 import Graph from "react-graph-vis";
 import { useForm } from "react-hook-form";
 /**
@@ -185,7 +185,7 @@ const ElGrafo = ({ grafo }) => {
           />
         </div>
         <div className="col-4">
-          <OpcionesGrafo
+          <OpcionesGrafoUI
             addNodo={addNew}
             addArista={addNewArista}
             nodos={[...state.graph.nodes]}
