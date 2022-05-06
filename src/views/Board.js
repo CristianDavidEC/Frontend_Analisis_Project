@@ -26,9 +26,9 @@ const Board = () => {
         <div className="col">
           <Outlet />
         </div>
-        <div className="col">
+        {/* <div className="col">
           <OpcionesGrafo />
-        </div>
+        </div> */}
       </div>
     </div>
   );

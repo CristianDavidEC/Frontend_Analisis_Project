@@ -62,7 +62,7 @@ const FormularioGrafo = ({ closeModal }) => {
                         onClick={setGrafo}>
                     Importar
                 </button>
-                <div class="custom-file">
+                <div className="custom-file">
                     <input
                         type="file"
                         className="custom-file-input"

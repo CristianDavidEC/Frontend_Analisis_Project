@@ -9,7 +9,7 @@ const ListaGrafos = () => {
         return (
           <div className='col'>
           <div className="card">
-            {/* <img src="..." class="card-img-top" alt="..."> */}
+            {/* <img src="..." className="card-img-top" alt="..."> */}
             <div className="card-body">
               <h5 className="card-title">{gg}</h5>
               <Link to="/board" className='btn btn-dark'>
@@ -22,7 +22,7 @@ const ListaGrafos = () => {
       })}
       <div className='col'>
           <div className="card">
-            {/* <img src="..." class="card-img-top" alt="..."> */}
+            {/* <img src="..." className="card-img-top" alt="..."> */}
             <div className="card-body">
               <h5 className="card-title">Nuevo grafo</h5>
               <Link to="/board" className='btn btn-dark'>

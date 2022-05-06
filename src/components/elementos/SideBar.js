@@ -20,7 +20,7 @@ const SideBarGrafo = () => {
             Analizar
           </Link>
 
-          <Dropdown className = "d-block">
+          <Dropdown className= "d-block">
             <Dropdown.Toggle id="dropdown-autoclose-true" className="w-100">
                Guardado 
             </Dropdown.Toggle>

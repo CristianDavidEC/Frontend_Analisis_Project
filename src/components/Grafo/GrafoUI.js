@@ -1,84 +1,49 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Graph from "react-graph-vis";
-import { elementContex } from '../../app/ContextState/Estado';
+import { elementContex } from "../../app/ContextState/Estado";
+import ElGrafo from "../../ensayo/ElGrafo";
 
 const GrafoUI = () => {
-    //State
-    const {
-        estadoGrafo,
-        setEstadoGrafo
-    } = React.useContext(elementContex);
+  //State
+  const { estadoGrafo, setEstadoGrafo } = React.useContext(elementContex);
 
-    //Estado de los Nodos del Grafo
-    const { nodes } = estadoGrafo;
+  //Estado de los Nodos del Grafo
+  const { nodes } = estadoGrafo;
 
-    //Estado de los eventos del GrafoUI
-    const [evento, setEvento] = useState();
-
-    let bordes = []
-    /**
-     * Mapea los nosos del estadoGrafo para darle el formato necesario
-     * para renderizar en componente
-     */
-    const grafoUI = {
-        nodes: nodes.map(node => {
-            node.linkedTo.forEach(link => {
-                bordes.push({
-                    from: node.id,
-                    to: link.nodeId,
-                    label:''+link.distance
-                });
-            });
-            return {
-                id: node.id,
-                label: node.label,
-            }
-        }),
-        edges: []
-    }
-    grafoUI.edges = bordes;
-    
-    //Ajustes del grafo y el canva
-    const options = {
-        layout: {
-            hierarchical: false,
-        },
-        edges: {
-            color: "#000000"
-        },
-
-    height: "100%",
-    width: "100%",
-    manipulation: {
-      addNode: function(data, callback) {
-        
-      },
-    },
+  //Estado de los eventos del GrafoUI
+  const [evento, setEvento] = useState();
+  // const [grafoActual, setGrafo] = useState({ nodes: [], edges: [] });
+  let bordes = [];
+  /**
+   * Mapea los nosos del estadoGrafo para darle el formato necesario
+   * para renderizar en componente
+   */
+  let grafoUI = {
+    nodes: nodes.map((node) => {
+      node.linkedTo.forEach((link) => {
+        bordes.push({
+          from: node.id,
+          to: link.nodeId,
+          label: "" + link.distance,
+        });
+      });
+      return {
+        id: node.id,
+        label: node.label,
+      };
+    }),
+    edges: [],
   };
 
-    //Evetos que peude manejar el grafo
-    const events = {
-        select: function (event) {
-            var { nodes, edges } = event;
-        }
-    };
+  grafoUI.edges = bordes;
 
-    //Renderizado el elemento grafoUI
-    return (
-        <div className="border border-primary border-4 m-3 p-1 spaceGraph">
-            <Graph
-                graph={grafoUI}
-                //graph = {graph}
-                options = {options}
-                events = {events}
-                getNetwork = {network => {
-                    //  if you want access to vis.js network api you can set the state in a parent component using this property
-                }}
-            />
-            <p>{evento}</p>
-        </div>
-    );
-}
+  //Renderizado el elemento grafoUI
+  return (
+    <div className="conatiner">
+      <ElGrafo grafo={grafoUI} />
+      <p>{evento}</p>
+    </div>
+  );
+};
 
 export { GrafoUI };
-
