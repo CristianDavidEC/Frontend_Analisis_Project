@@ -1,8 +1,4 @@
 import React, { useState } from "react";
-import {
-  IoMdAddCircleOutline,
-  IoIosCheckmarkCircleOutline,
-} from "react-icons/io";
 import { MdEdit, MdDelete, MdAddCircle } from "react-icons/md";
 /**
  *

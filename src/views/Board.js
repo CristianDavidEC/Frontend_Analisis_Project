@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 import { SideBarGrafo } from "../components/elementos/SideBar";
 import { Link } from "react-router-dom";
 import { OpcionesGrafoUI } from "../components/OpcionesGrafo/OpcionesGrafoUI";
+import { OpcionesGrafo } from "../components/OpcionesGrafo/OpcionesGrafo";
 
 
 const Board = () => {
@@ -26,9 +27,10 @@ const Board = () => {
         <div className="col">
           <Outlet />
         </div>
-        {/* <div className="col">
+        <div className="col">
+          {/*<OpcionesGrafoUI />*/}
           <OpcionesGrafo />
-        </div> */}
+        </div>
       </div>
     </div>
   );

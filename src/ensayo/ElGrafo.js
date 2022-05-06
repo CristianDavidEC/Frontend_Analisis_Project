@@ -154,6 +154,7 @@ const ElGrafo = ({ grafo }) => {
       }
     });
   }
+  
   const interacciones = (network) => {
     network.on("click", function(params) {
       const { nodes, edges } = params;
