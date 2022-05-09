@@ -44,7 +44,7 @@ const GrafoUI = () => {
 
   //Renderizado el elemento grafoUI
   return (
-        <div className="border border-primary border-4 m-3 p-1 spaceGraph">
+        <div className="border border-primary border-4 my-3 spaceGraph">
           <Graph
             graph={grafoUI}
             options={opciones.options}

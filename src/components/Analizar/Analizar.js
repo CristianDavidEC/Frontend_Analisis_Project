@@ -3,7 +3,7 @@ import { GrafoUI } from '../Grafo/GrafoUI'
 
 const Analizar = () => {
   return (
-    <div className='container row mt-3'>
+    <div className='col-9 mt-3'>
         <h3>Analizar grafo</h3>
         <GrafoUI />
         <div className='container row'>

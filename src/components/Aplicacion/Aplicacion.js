@@ -5,7 +5,7 @@ import { GrafoUI } from "../Grafo/GrafoUI";
 const Aplicacion = () => {
   
   return (
-    <div className='container row mt-3'>
+    <div className='col-9 mt-3'>
         <h3>Aplicacion del grafo</h3>
         <GrafoUI />
     </div>
