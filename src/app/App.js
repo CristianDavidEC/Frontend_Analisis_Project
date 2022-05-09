@@ -18,25 +18,25 @@ import { AcercaDe } from "../views/principal/AcercaDe";
 
 function App() {
   return (
-    <ElementEstado>
-      <Router>
-        <Routes>
-          <Route path="" element={<Login />} />
+      <ElementEstado>
+        <Router>
+          <Routes>
+            <Route path="" element={<Login />} />
 
-          <Route path="home" element={<HomePage />}>
-            <Route path="" element={<ListaGrafos />} />
-            <Route path="ayuda" element={<Ayuda />} />
-            <Route path="acerca_de" element={<AcercaDe />} />
-          </Route>
+            <Route path="home" element={<HomePage />}>
+              <Route path="" element={<ListaGrafos />} />
+              <Route path="ayuda" element={<Ayuda />} />
+              <Route path="acerca_de" element={<AcercaDe />} />
+            </Route>
 
-          <Route path="board" element={<Board />}>
-            <Route path="" element={<Tablero />} />
-            <Route path="aplicacion" element={<Aplicacion />} />
-            <Route path="analizar" element={<Analizar />} />
-          </Route>
-        </Routes>
-      </Router>
-    </ElementEstado>
+            <Route path="board" element={<Board />}>
+              <Route path="" element={<Tablero />} />
+              <Route path="aplicacion" element={<Aplicacion />} />
+              <Route path="analizar" element={<Analizar />} />
+            </Route>
+          </Routes>
+        </Router>
+      </ElementEstado>
   );
 }
 export default App;

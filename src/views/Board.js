@@ -8,7 +8,7 @@ import { GrGraphQl } from "react-icons/gr";
 
 const Board = () => {
   return (
-    <div className="position-relative top-0 start-0">
+    <div className="position-relative contenido">
       <nav className="navbar navbar-dark bg-dark">
         <div className="container-fluid">
           <a className="navbar-brand">
@@ -24,10 +24,10 @@ const Board = () => {
 
       <div className="row">
         <SideBarGrafo />
-        <div className="col">
+        <div className="col-5">
           <Outlet />
         </div>
-        <div className="col">
+        <div className="col-4 mr-5">
           <OpcionesGrafo />
         </div>
       </div>

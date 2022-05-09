@@ -44,9 +44,6 @@ const GrafoUI = () => {
 
   //Renderizado el elemento grafoUI
   return (
-    <div className="conatiner">
-      {/*<ElGrafo grafo={grafoUI} />*/}
-      <div className="row">
         <div className="border border-primary border-4 m-3 p-1 spaceGraph">
           <Graph
             graph={grafoUI}
@@ -55,9 +52,7 @@ const GrafoUI = () => {
             getNetwork={(network) => {
             }}
           />
-        </div>
-      </div>
-    </div>
+        </div>    
   );
 };
 
