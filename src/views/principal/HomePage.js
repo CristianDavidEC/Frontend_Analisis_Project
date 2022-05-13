@@ -7,7 +7,6 @@ import { GrGraphQl } from "react-icons/gr";
 const HomePage = () => {
 
   return (
-    
     <div className="position-relative top-0 start-0">
       <nav className="navbar navbar-dark bg-dark">
         <div className="container-fluid">
