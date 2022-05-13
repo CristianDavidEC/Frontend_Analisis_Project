@@ -7,7 +7,7 @@ const Tablero = () => {
   const { estadoGrafo, buscarNodo } = React.useContext(elementContex);
 
   //Estado de el nodo seleccionado
-  const [selectedNode, setNode] = useState({id: null});
+  const [selectedNode, setNode] = useState({id: null, label : null});
 
   //Estado de la arista seleccionada
   const [selectedEdge, setEdge] = useState({});

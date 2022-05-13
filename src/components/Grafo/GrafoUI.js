@@ -44,11 +44,10 @@ const GrafoUI = ({ setEdge, setNode }) => {
         console.log(nodoSelected)
         setNode(nodoSelected);
       } else {
-        setNode(null);
+        setNode({id: null, label: null});
       }
     }
   }
-
 
   /*const interacciones = (network) => {
     network.on("click", function(params) {
