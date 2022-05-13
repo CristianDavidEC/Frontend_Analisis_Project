@@ -1,7 +1,6 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import { SideBarMenu } from "../../components/elementos/SideBarHome";
-import { elementContex } from "../../app/ContextState/Estado";
 import { ModalNuevoGrafo } from "../../components/ModalNuevoGrafo/ModalNuevoGrafo";
 import { GrGraphQl } from "react-icons/gr";
 const HomePage = () => {

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { DropdownButton, Dropdown } from "react-bootstrap";
+import { Dropdown } from "react-bootstrap";
 
 const SideBarGrafo = () => {
   return (

@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+//import React, { useEffect, useState } from "react";
+import React from "react";
 import Graph from "react-graph-vis";
 import { elementContex } from "../../app/ContextState/Estado";
 import { opciones } from "./AjustesGrafo";
@@ -9,7 +10,7 @@ import { opciones } from "./AjustesGrafo";
  * */
 const GrafoUI = ({ setEdge, setNode }) => {
   //State del grafo
-  const { estadoGrafo, setEstadoGrafo } = React.useContext(elementContex);
+  const { estadoGrafo } = React.useContext(elementContex);
   //Estado de los Nodos del Grafo
   const { nodes } = estadoGrafo;
   let bordes = [];
@@ -39,13 +40,12 @@ const GrafoUI = ({ setEdge, setNode }) => {
   const evento = {
     click: (event) => {
       //const nodoSelected = event.nodes ? event.nodes[0] : {};
-      if (event.nodes) {
+      if (event.nodes.length > 0) {  
         const nodoSelected = nodes.find(nodo => nodo.id === event.nodes[0]);
-        console.log(nodoSelected)
         setNode(nodoSelected);
       } else {
         setNode({id: null, label: null});
-      }
+      } 
     }
   }
 

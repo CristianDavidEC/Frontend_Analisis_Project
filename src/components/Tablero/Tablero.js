@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { OpcionesGrafo } from "../OpcionesGrafo/OpcionesGrafo";
 import { GrafoUI } from "../Grafo/GrafoUI";
-import { elementContex } from "../../app/ContextState/Estado";
+//import { elementContex } from "../../app/ContextState/Estado";
 
 const Tablero = () => {
-  const { estadoGrafo, buscarNodo } = React.useContext(elementContex);
-
   //Estado de el nodo seleccionado
   const [selectedNode, setNode] = useState({id: null, label : null});
+  //console.log(selectedNode);
 
   //Estado de la arista seleccionada
   const [selectedEdge, setEdge] = useState({});

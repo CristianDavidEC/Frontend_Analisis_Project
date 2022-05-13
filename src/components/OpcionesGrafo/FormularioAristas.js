@@ -21,7 +21,7 @@ const FormulariAristas = ({ handleSubmit, register, reset }) => {
             nodeId : arista.to,
             distance : arista.label,
         }
-        let grafoActual = {... estadoGrafo};
+        let grafoActual = {...estadoGrafo};
         grafoActual.nodes[nodoFrom].linkedTo.push(edge);
         setEstadoGrafo(grafoActual);
         reset();

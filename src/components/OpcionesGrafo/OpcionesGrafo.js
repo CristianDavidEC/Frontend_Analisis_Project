@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { MdEdit, MdDelete, MdAddCircle } from "react-icons/md";
 import { FormularioNodos } from "./FomularioNodos";
 import { FormulariAristas } from "./FormularioAristas";
+import { elementContex } from "../../app/ContextState/Estado";
 
 const OpcionesGrafo = ({ selectedEdge, selectedNode }) => {
   //Estado del formulario
@@ -11,8 +12,23 @@ const OpcionesGrafo = ({ selectedEdge, selectedNode }) => {
     register,
     handleSubmit,
     reset,
-    formState: { errors },
   } = useForm();
+
+  const { estadoGrafo, setEstadoGrafo } = React.useContext(elementContex);
+  //Estado de los Nodos del Grafo
+
+  const eliminarNodo = (nodoEliminar) => {
+    let grafoActual = {...estadoGrafo};
+    if (nodoEliminar.id) {
+      let nodosFilter = grafoActual.nodes.filter(
+              nodo => JSON.stringify(nodo) !== JSON.stringify(nodoEliminar)
+            );
+      grafoActual.nodes = nodosFilter;
+      setEstadoGrafo(grafoActual);
+    } else {
+      alert("No ha seleccionado ningun nodo");
+    }
+  }
 
   const [camposActiveNodo, setCamposActiveNodo] = useState(false);
   const [camposActiveArista, setCamposActiveArista] = useState(false);
@@ -25,7 +41,7 @@ const OpcionesGrafo = ({ selectedEdge, selectedNode }) => {
         <button
           className="col-2 btn btn-primary"
           type="button"
-          disabled = {selectedNode.id}
+          disabled={selectedNode.id}
           onClick={() => {
             setCamposActiveNodo(!camposActiveNodo);
           }}
@@ -49,6 +65,9 @@ const OpcionesGrafo = ({ selectedEdge, selectedNode }) => {
           className="col-2 btn btn-danger"
           disabled={!selectedNode}
           type="button"
+          onClick={() => {
+            eliminarNodo(selectedNode);
+          }}
         >
           <MdDelete />
         </button>
@@ -58,8 +77,8 @@ const OpcionesGrafo = ({ selectedEdge, selectedNode }) => {
           handleSubmit={handleSubmit}
           register={register}
           reset={reset}
-          nodo = {selectedNode}
-          cerrar = {setCamposActiveNodo}
+          nodo={selectedNode}
+          cerrar={setCamposActiveNodo}
         />
       ) : (
         <></>
@@ -89,7 +108,9 @@ const OpcionesGrafo = ({ selectedEdge, selectedNode }) => {
           {" "}
           <MdEdit />{" "}
         </button>
-        <button className="col-2 btn btn-danger" type="button">
+        <button
+          className="col-2 btn btn-danger"
+          type="button">
           <MdDelete />
         </button>
       </div>

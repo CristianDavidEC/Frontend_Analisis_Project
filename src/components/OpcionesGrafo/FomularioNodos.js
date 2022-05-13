@@ -4,7 +4,7 @@ import { elementContex } from "../../app/ContextState/Estado";
 const FormularioNodos = ({ handleSubmit, register, reset, nodo, cerrar}) => {
 
     const { estadoGrafo, setEstadoGrafo } = React.useContext(elementContex);
-    console.log(nodo);
+    //console.log(nodo);
 
     const agregarNodo = (nodeCreated) => {
         let nodoNew = {
@@ -14,7 +14,7 @@ const FormularioNodos = ({ handleSubmit, register, reset, nodo, cerrar}) => {
             "type": " ",
             "linkedTo": []
         }
-        let grafoActual = {... estadoGrafo};
+        let grafoActual = {...estadoGrafo};
         grafoActual.nodes.push(nodoNew);
         setEstadoGrafo(grafoActual);
         reset();
