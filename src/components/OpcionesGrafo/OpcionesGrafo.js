@@ -14,19 +14,18 @@ const OpcionesGrafo = ({ selectedEdge, selectedNode }) => {
     reset,
   } = useForm();
 
+
   const { estadoGrafo, setEstadoGrafo } = React.useContext(elementContex);
   //Estado de los Nodos del Grafo
 
   const eliminarNodo = (nodoEliminar) => {
-    let grafoActual = {...estadoGrafo};
+    let grafoActual = { ...estadoGrafo };
     if (nodoEliminar.id) {
       let nodosFilter = grafoActual.nodes.filter(
-              nodo => JSON.stringify(nodo) !== JSON.stringify(nodoEliminar)
-            );
+        nodo => JSON.stringify(nodo) !== JSON.stringify(nodoEliminar)
+      );
       grafoActual.nodes = nodosFilter;
       setEstadoGrafo(grafoActual);
-    } else {
-      alert("No ha seleccionado ningun nodo");
     }
   }
 
@@ -43,6 +42,7 @@ const OpcionesGrafo = ({ selectedEdge, selectedNode }) => {
           type="button"
           disabled={selectedNode.id}
           onClick={() => {
+            setEstadoBoton(true);
             setCamposActiveNodo(!camposActiveNodo);
           }}
         >
@@ -54,7 +54,7 @@ const OpcionesGrafo = ({ selectedEdge, selectedNode }) => {
           type="button"
           disabled={!selectedNode.id}
           onClick={() => {
-            // addNodo();
+            setEstadoBoton(false);
             setCamposActiveNodo(!camposActiveNodo);
           }}
         >
@@ -63,7 +63,7 @@ const OpcionesGrafo = ({ selectedEdge, selectedNode }) => {
         </button>
         <button
           className="col-2 btn btn-danger"
-          disabled={!selectedNode}
+          disabled={!selectedNode.id}
           type="button"
           onClick={() => {
             eliminarNodo(selectedNode);
@@ -79,6 +79,7 @@ const OpcionesGrafo = ({ selectedEdge, selectedNode }) => {
           reset={reset}
           nodo={selectedNode}
           cerrar={setCamposActiveNodo}
+          operacion={estadoBoton}
         />
       ) : (
         <></>

@@ -1,10 +1,9 @@
 import React from "react";
 import { elementContex } from "../../app/ContextState/Estado";
 
-const FormularioNodos = ({ handleSubmit, register, reset, nodo, cerrar}) => {
+const FormularioNodos = ({ handleSubmit, register, reset, nodo, cerrar, operacion}) => {
 
     const { estadoGrafo, setEstadoGrafo } = React.useContext(elementContex);
-    //console.log(nodo);
 
     const agregarNodo = (nodeCreated) => {
         let nodoNew = {
@@ -21,8 +20,13 @@ const FormularioNodos = ({ handleSubmit, register, reset, nodo, cerrar}) => {
         cerrar(false);
     }
 
+    const editarNodo = (nodeEdit) => {
+        console.log(nodeEdit);
+        cerrar(false);
+    }
+
     return (
-        <form onSubmit={handleSubmit(agregarNodo)}>
+        <form onSubmit={handleSubmit(operacion ? agregarNodo : editarNodo)}>
             <div className="row p-2">
                 <div key="nodos_id_form" className="col form-group">
                     <label htmlFor="id_nodo">id</label>
