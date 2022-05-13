@@ -1,14 +1,15 @@
 import React from "react";
 import { elementContex } from "../../app/ContextState/Estado";
 
-const FormularioNodos = ({ handleSubmit, register, reset,nodo, cerrar}) => {
+const FormularioNodos = ({ handleSubmit, register, reset, nodo, cerrar}) => {
 
     const { estadoGrafo, setEstadoGrafo } = React.useContext(elementContex);
     console.log(nodo);
-    const agregarNodo = (nodo) => {
+
+    const agregarNodo = (nodeCreated) => {
         let nodoNew = {
-            "id": nodo.id,
-            "label": nodo.label,
+            "id": nodeCreated.id,
+            "label": nodeCreated.label,
             "data": {},
             "type": " ",
             "linkedTo": []

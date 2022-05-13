@@ -25,7 +25,7 @@ const OpcionesGrafo = ({ selectedEdge, selectedNode }) => {
         <button
           className="col-2 btn btn-primary"
           type="button"
-          disabled={selectedNode.id}
+          disabled = {selectedNode.id}
           onClick={() => {
             setCamposActiveNodo(!camposActiveNodo);
           }}
@@ -47,7 +47,7 @@ const OpcionesGrafo = ({ selectedEdge, selectedNode }) => {
         </button>
         <button
           className="col-2 btn btn-danger"
-          disabled={!selectedNode.id}
+          disabled={!selectedNode}
           type="button"
         >
           <MdDelete />

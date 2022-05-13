@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Graph from "react-graph-vis";
-import { set } from "react-hook-form";
 import { elementContex } from "../../app/ContextState/Estado";
 import { opciones } from "./AjustesGrafo";
 
@@ -9,15 +8,10 @@ import { opciones } from "./AjustesGrafo";
  * en el estado actual del contexto.
  * */
 const GrafoUI = ({ setEdge, setNode }) => {
-  //State
+  //State del grafo
   const { estadoGrafo, setEstadoGrafo } = React.useContext(elementContex);
-
   //Estado de los Nodos del Grafo
   const { nodes } = estadoGrafo;
-
-  //Estado de los eventos del GrafoUI
-  const [evento, setEvento] = useState();
-  // const [grafoActual, setGrafo] = useState({ nodes: [], edges: [] });
   let bordes = [];
 
   /**
@@ -40,10 +34,23 @@ const GrafoUI = ({ setEdge, setNode }) => {
     }),
     edges: [],
   };
-
   grafoUI.edges = bordes;
 
-  const interacciones = (network) => {
+  const evento = {
+    click: (event) => {
+      //const nodoSelected = event.nodes ? event.nodes[0] : {};
+      if (event.nodes) {
+        const nodoSelected = nodes.find(nodo => nodo.id === event.nodes[0]);
+        console.log(nodoSelected)
+        setNode(nodoSelected);
+      } else {
+        setNode(null);
+      }
+    }
+  }
+
+
+  /*const interacciones = (network) => {
     network.on("click", function(params) {
       const { nodes, edges } = params;
       if (nodes.length === 0 && edges.length === 0) {
@@ -63,6 +70,8 @@ const GrafoUI = ({ setEdge, setNode }) => {
       console.log(`nodos: ${nodes}, aristas: ${edges}`);
     });
   };
+*/
+
   //Renderizado el elemento grafoUI
   return (
     <div className="border border-primary border-4 my-3 spaceGraph">
@@ -71,7 +80,7 @@ const GrafoUI = ({ setEdge, setNode }) => {
         options={opciones.options}
         events={evento}
         getNetwork={(network) => {
-          interacciones(network);
+          {/*interacciones(network);*/ }
         }}
       />
     </div>
