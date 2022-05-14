@@ -9,15 +9,18 @@
         "linkedTo": [
           {
             "nodeId": 2,
-            "distance": 120
+            "distance": 120,
+            "id": 1
           },
           {
             "nodeId": 4,
-            "distance": 87
+            "distance": 87,
+            "id": 2
           },
           {
             "nodeId": 5,
-            "distance": 101
+            "distance": 101,
+            "id": 3
           }
         ]
       },
@@ -29,15 +32,18 @@
         "linkedTo": [
           {
             "nodeId": 1,
-            "distance": 120
+            "distance": 120,
+            "id": 4
           },
           {
             "nodeId": 7,
-            "distance": 45
+            "distance": 45,
+            "id": 5
           },
           {
             "nodeId": 3,
-            "distance": 17
+            "distance": 17,
+            "id": 6
           }
         ]
       },
@@ -49,15 +55,18 @@
         "linkedTo": [
           {
             "nodeId": 5,
-            "distance": 86
+            "distance": 86,
+            "id": 7
           },
           {
             "nodeId": 2,
-            "distance": 17
+            "distance": 17,
+            "id": 8
           },
           {
             "nodeId": 9,
-            "distance": 15
+            "distance": 15,
+            "id": 9
           }
         ]
       },
@@ -69,19 +78,23 @@
         "linkedTo": [
           {
             "nodeId": 14,
-            "distance": 120
+            "distance": 120,
+            "id": 10
           },
           {
             "nodeId": 17,
-            "distance": 87
+            "distance": 87,
+            "id": 11
           },
           {
             "nodeId": 11,
-            "distance": 101
+            "distance": 101,
+            "id": 12
           },
           {
             "nodeId": 2,
-            "distance": 30
+            "distance": 30,
+            "id": 13
           }
 
         ]

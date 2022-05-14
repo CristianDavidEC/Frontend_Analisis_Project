@@ -26,6 +26,7 @@ const GrafoUI = ({ setEdge, setNode }) => {
           from: node.id,
           to: link.nodeId,
           label: "" + link.distance,
+          edgeId: link.id
         });
       });
       return {
@@ -39,13 +40,13 @@ const GrafoUI = ({ setEdge, setNode }) => {
 
   const evento = {
     click: (event) => {
-      //const nodoSelected = event.nodes ? event.nodes[0] : {};
-      if (event.nodes.length > 0) {  
+      console.log(event);
+      if (event.nodes.length > 0) {
         const nodoSelected = nodes.find(nodo => nodo.id === event.nodes[0]);
         setNode(nodoSelected);
       } else {
-        setNode({id: null, label: null});
-      } 
+        setNode({ id: null, label: null });
+      }
     }
   }
 

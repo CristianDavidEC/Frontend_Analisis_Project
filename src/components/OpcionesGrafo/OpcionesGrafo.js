@@ -14,9 +14,11 @@ const OpcionesGrafo = ({ selectedEdge, selectedNode }) => {
     reset,
   } = useForm();
 
+  //estado de las opciones de boton
+  const [estadoBoton, setEstadoBoton] = useState(false);
 
-  const { estadoGrafo, setEstadoGrafo } = React.useContext(elementContex);
   //Estado de los Nodos del Grafo
+  const { estadoGrafo, setEstadoGrafo } = React.useContext(elementContex);
 
   const eliminarNodo = (nodoEliminar) => {
     let grafoActual = { ...estadoGrafo };
@@ -33,7 +35,7 @@ const OpcionesGrafo = ({ selectedEdge, selectedNode }) => {
   const [camposActiveArista, setCamposActiveArista] = useState(false);
 
   return (
-    <div className="col">
+    <div className="col mx-3">
       {/* Botnotes CRUD de nodo */}
       <div className="row d-flex justify-content-around mt-3">
         <h4>Opciones de Nodos</h4>
