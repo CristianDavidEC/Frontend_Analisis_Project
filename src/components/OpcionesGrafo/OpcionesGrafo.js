@@ -14,20 +14,29 @@ const OpcionesGrafo = ({ selectedEdge, selectedNode }) => {
     reset,
   } = useForm();
   
-  useEffect(() => {
-    if (!selectedNode.id) {
-      reset();
-      setCamposActiveNodo(false);
-    }
-    reset();
-    setEstadoBoton(false);
-  },[selectedNode]);
-
-  //estado de las opciones de boton si estan actos o no
-  const [estadoBoton, setEstadoBoton] = useState(false);
-
   //Estado de los Nodos del Grafo
   const { estadoGrafo, setEstadoGrafo } = React.useContext(elementContex);
+
+  //Estado de las opciones de boton si estan activos o no
+  const [estadoBoton, setEstadoBoton] = useState(false);
+
+  //Estado de el formulario de nodos y aristas, si esta abierto o no
+  const [camposActiveNodo, setCamposActiveNodo] = useState(false);
+  const [camposActiveArista, setCamposActiveArista] = useState(false);
+
+  /**
+   * Controla los cambios en el formulario, refrescandolo si
+   * es necesario o actualizando los valores de elementos.
+   */
+     useEffect(() => {
+      if (!selectedNode.id) {
+        reset();
+        setCamposActiveNodo(false);
+      }
+      reset();
+      setEstadoBoton(false);
+    },[selectedNode]);
+  
 
   const eliminarNodo = (nodoEliminar) => {
     let grafoActual = { ...estadoGrafo };
@@ -39,9 +48,6 @@ const OpcionesGrafo = ({ selectedEdge, selectedNode }) => {
       setEstadoGrafo(grafoActual);
     }
   }
-  //Estado de el formulario de nodos, si esta abierto o no
-  const [camposActiveNodo, setCamposActiveNodo] = useState(false);
-  const [camposActiveArista, setCamposActiveArista] = useState(false);
 
   return (
     <div className="col mx-3">
