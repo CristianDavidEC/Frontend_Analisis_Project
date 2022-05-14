@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { MdEdit, MdDelete, MdAddCircle } from "react-icons/md";
 import { FormularioNodos } from "./FomularioNodos";
@@ -13,8 +13,17 @@ const OpcionesGrafo = ({ selectedEdge, selectedNode }) => {
     handleSubmit,
     reset,
   } = useForm();
+  
+  useEffect(() => {
+    if (!selectedNode.id) {
+      reset();
+      setCamposActiveNodo(false);
+    }
+    reset();
+    setEstadoBoton(false);
+  },[selectedNode]);
 
-  //estado de las opciones de boton
+  //estado de las opciones de boton si estan actos o no
   const [estadoBoton, setEstadoBoton] = useState(false);
 
   //Estado de los Nodos del Grafo
@@ -30,7 +39,7 @@ const OpcionesGrafo = ({ selectedEdge, selectedNode }) => {
       setEstadoGrafo(grafoActual);
     }
   }
-
+  //Estado de el formulario de nodos, si esta abierto o no
   const [camposActiveNodo, setCamposActiveNodo] = useState(false);
   const [camposActiveArista, setCamposActiveArista] = useState(false);
 
@@ -46,6 +55,7 @@ const OpcionesGrafo = ({ selectedEdge, selectedNode }) => {
           onClick={() => {
             setEstadoBoton(true);
             setCamposActiveNodo(!camposActiveNodo);
+            reset();
           }}
         >
           {" "}
@@ -57,6 +67,7 @@ const OpcionesGrafo = ({ selectedEdge, selectedNode }) => {
           disabled={!selectedNode.id}
           onClick={() => {
             setEstadoBoton(false);
+            reset();
             setCamposActiveNodo(!camposActiveNodo);
           }}
         >
@@ -69,6 +80,7 @@ const OpcionesGrafo = ({ selectedEdge, selectedNode }) => {
           type="button"
           onClick={() => {
             eliminarNodo(selectedNode);
+            reset();
           }}
         >
           <MdDelete />

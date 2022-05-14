@@ -25,8 +25,7 @@ const GrafoUI = ({ setEdge, setNode }) => {
         bordes.push({
           from: node.id,
           to: link.nodeId,
-          label: "" + link.distance,
-          edgeId: link.id
+          label: "" + link.distance
         });
       });
       return {
@@ -40,7 +39,6 @@ const GrafoUI = ({ setEdge, setNode }) => {
 
   const evento = {
     click: (event) => {
-      console.log(event);
       if (event.nodes.length > 0) {
         const nodoSelected = nodes.find(nodo => nodo.id === event.nodes[0]);
         setNode(nodoSelected);

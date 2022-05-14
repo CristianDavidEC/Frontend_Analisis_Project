@@ -1,9 +1,16 @@
 import React from "react";
 import { elementContex } from "../../app/ContextState/Estado";
 
-const FormularioNodos = ({ handleSubmit, register, reset, nodo, cerrar, operacion}) => {
+const FormularioNodos = ({
+    handleSubmit,
+    register, 
+    reset, 
+    nodo, 
+    cerrar, 
+    operacion}) => {
 
-    const { estadoGrafo, setEstadoGrafo } = React.useContext(elementContex);
+    const { id, label } = nodo;
+    const { estadoGrafo, setEstadoGrafo }= React.useContext(elementContex);
 
     const agregarNodo = (nodeCreated) => {
         let nodoNew = {
@@ -34,8 +41,7 @@ const FormularioNodos = ({ handleSubmit, register, reset, nodo, cerrar, operacio
                         type="text"
                         id="id_nodo"
                         className="form-control"
-                        aria-label=""
-                        defaultValue={nodo.id}
+                        defaultValue={id}
                         aria-describedby="basic-addon1"
                         {...register(`id`, {
                             valueAsNumber: true,
@@ -48,8 +54,7 @@ const FormularioNodos = ({ handleSubmit, register, reset, nodo, cerrar, operacio
                         type="text"
                         id="label_nodo"
                         className="form-control"
-                        aria-label=""
-                        defaultValue={nodo.label}
+                        defaultValue={label}
                         aria-describedby="basic-addon1"
                         {...register(`label`)}
                     />
