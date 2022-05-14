@@ -10,8 +10,14 @@ const FormularioNodos = ({
     operacion}) => {
 
     const { id, label } = nodo;
-    const { estadoGrafo, setEstadoGrafo }= React.useContext(elementContex);
+    const { 
+          estadoGrafo,
+          setEstadoGrafo,
+          buscarNodo 
+        }= React.useContext(elementContex);
+    let grafoActual = {...estadoGrafo};
 
+//---------------- Funciones -------------------//
     const agregarNodo = (nodeCreated) => {
         let nodoNew = {
             "id": nodeCreated.id,
@@ -20,15 +26,23 @@ const FormularioNodos = ({
             "type": " ",
             "linkedTo": []
         }
-        let grafoActual = {...estadoGrafo};
         grafoActual.nodes.push(nodoNew);
         setEstadoGrafo(grafoActual);
         reset();
         cerrar(false);
     }
 
-    const editarNodo = (nodeEdit) => {
-        console.log(nodeEdit);
+    const editarNodo = (newNodeEdit) => {
+        const indexNodo = buscarNodo(nodo.id);  
+        let nodoEditar = {...grafoActual.nodes[indexNodo]};
+        console.log(nodoEditar);
+        nodoEditar.id = newNodeEdit.id;
+        nodoEditar.label = newNodeEdit.label;
+        console.log(nodoEditar);
+        grafoActual.nodes[indexNodo] = nodoEditar;
+        setEstadoGrafo(grafoActual);
+        console.log(estadoGrafo);
+        reset();
         cerrar(false);
     }
 

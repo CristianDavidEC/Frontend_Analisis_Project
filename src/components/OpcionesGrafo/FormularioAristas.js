@@ -13,10 +13,7 @@ const FormulariAristas = ({ handleSubmit, register, reset }) => {
      *  */ 
     const agregarArista = (arista) => {
         const { from } = arista;
-
         const nodoFrom = buscarNodo(from);
-        console.log(nodoFrom);
-
         let edge = {
             nodeId : arista.to,
             distance : arista.label,
