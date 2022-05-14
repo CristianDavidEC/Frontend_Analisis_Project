@@ -78,7 +78,8 @@ const FormularioNodos = ({
         <button
           className="col btn btn-success align-self-center"
           type="submit"
-        > Guardar
+        >
+          {operacion ? "Guardar" : "Actualizar"}
         </button>
       </div>
     </form>
