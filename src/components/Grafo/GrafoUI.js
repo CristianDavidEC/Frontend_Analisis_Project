@@ -1,6 +1,7 @@
 //import React, { useEffect, useState } from "react";
 import React from "react";
 import Graph from "react-graph-vis";
+import { network } from "vis-network";
 import { elementContex } from "../../app/ContextState/Estado";
 import { opciones } from "./AjustesGrafo";
 
@@ -46,29 +47,23 @@ const GrafoUI = ({ setEdge, setNode }) => {
         setNode({ id: null, label: null });
       }
     }
+
   }
 
-  /*const interacciones = (network) => {
+  const interacciones = (network) => {
     network.on("click", function(params) {
-      const { nodes, edges } = params;
-      if (nodes.length === 0 && edges.length === 0) {
-        setEdge({ id: null });
-        setNode({ id: null });
-      } else if (nodes.length === 0 && edges.length > 0) {
-        setNode({ id: null });
-        setEdge({ id: edges[0] });
-      } else {
-        setEdge({ id: null });
-        setNode({ id: nodes[0] });
-        // const nodesCopy = [...state.graph.nodes];
-        // console.log(JSON.stringify(nodesCopy));
-        // const m = nodes.find((nc) => nc.id === nodes[0].id);
-        // console.log(`the ${m}`);
+      const { edges } = params;
+      if (edges.length === 1) {
+        const conections = network.getConnectedNodes(edges[0]);
+        const {distance} = nodes.find(nodo => nodo.id === conections[0])
+                           .linkedTo.find(arista => arista.nodeId === conections[1]);
+        setEdge({from: conections[0], to: conections[1], label: distance});
+      } 
+      else {
+        setEdge({from: null, to: null, label: null});
       }
-      console.log(`nodos: ${nodes}, aristas: ${edges}`);
     });
-  };
-*/
+  }
 
   //Renderizado el elemento grafoUI
   return (
@@ -78,7 +73,7 @@ const GrafoUI = ({ setEdge, setNode }) => {
         options={opciones.options}
         events={evento}
         getNetwork={(network) => {
-          {/*interacciones(network);*/ }
+          interacciones(network);
         }}
       />
     </div>

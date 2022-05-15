@@ -9,26 +9,8 @@ const Tablero = () => {
   //console.log(selectedNode);
 
   //Estado de la arista seleccionada
-  const [selectedEdge, setEdge] = useState({});
+  const [selectedEdge, setEdge] = useState({from: null, to: null, label: null});
 
-  /*useEffect(() => {
-    if (selectedNode.id && !selectedNode.label) {
-      const { label } = estadoGrafo.nodes.find(
-        (eg) => (eg.id = selectedNode.id)
-      );
-      console.log(label);
-      setNode({ ...selectedNode, label });
-    }
-    if (selectedEdge.id && !selectedNode.label) {
-      console.log(estadoGrafo);
-      // const { label } = estadoGrafo.nodes.find(
-      //   (eg) => (eg.id = selectedNode.id)
-      // );
-      // console.log(label);
-      // setNode({ ...selectedNode, label });
-    }
-  }, [selectedEdge, selectedNode, estadoGrafo]);
-*/
   return (
     <div className="col-9 mt-3">
       <div className="row">

@@ -1,20 +1,24 @@
 import React from "react";
+import { useForm } from "react-hook-form";
 import { elementContex } from "../../app/ContextState/Estado";
 
-const FormularioNodos = ({
-  handleSubmit,
-  register,
-  reset,
-  nodo,
-  cerrar,
-  operacion }) => {
 
+const FormularioNodos = ({
+    register,
+    handleSubmit,
+    reset,
+    nodo,
+    cerrar,
+    operacion }) => {
+
+  //Estado Nodo seleciionado
   const { id, label } = nodo;
-  const {
-    estadoGrafo,
-    setEstadoGrafo,
-    buscarNodo
-  } = React.useContext(elementContex);
+
+  //Estado del grafo
+  const { estadoGrafo,
+          setEstadoGrafo,
+          buscarNodo } = React.useContext(elementContex);
+
   let grafoActual = {...estadoGrafo };
 
   //---------------- Funciones -------------------//
