@@ -64,12 +64,12 @@ const OpcionesGrafo = ({ selectedEdge, selectedNode }) => {
 
   const eliminarArista = (dataArista) => {
     const aristaEliminar = {nodeId: dataArista.to, distance: dataArista.label};
-    console.log(aristaEliminar);
     if (dataArista.from) {
       let nodoPadre = buscarNodo(dataArista.from);
-      console.log(grafoActual.nodes[nodoPadre]);
       let nodoFilterArista = grafoActual.nodes[nodoPadre].linkedTo
-                         .filter( arista => JSON.stringify(arista) !== JSON.stringify(aristaEliminar));
+          .filter( arista => 
+                   JSON.stringify(arista) !== JSON.stringify(aristaEliminar)
+                );
       grafoActual.nodes[nodoPadre].linkedTo = nodoFilterArista;
       setEstadoGrafo(grafoActual);
     }

@@ -14,8 +14,10 @@ const FormulariAristas = ({
     const { estadoGrafo,
         setEstadoGrafo,
         buscarNodo } = React.useContext(elementContex);
+    
+    let grafoActual = {...estadoGrafo};
 
-    const { nodes } = estadoGrafo;
+    const { nodes } = grafoActual;
 
     const { from, to, label } = edge;
 
@@ -30,14 +32,24 @@ const FormulariAristas = ({
             nodeId: arista.to,
             distance: arista.label,
         }
-        let grafoActual = { ...estadoGrafo };
         grafoActual.nodes[nodoFrom].linkedTo.push(edge);
         setEstadoGrafo(grafoActual);
         reset();
     }
 
     const editarArista = (arista) => {
-        const newLinked = {nodeId : to, distance : arista.label};
+        const aristaActual = {nodeId: to, distance: label};
+        console.log(aristaActual);
+        const newLinked = {nodeId : to, distance : parseInt(arista.label)};
+        console.log(newLinked);
+        let nodoPadre = buscarNodo(from);
+        console.log(grafoActual.nodes[nodoPadre]);
+        const indexArista = grafoActual.nodes[nodoPadre].linkedTo
+                .findIndex( arista => 
+                    JSON.stringify(arista) === JSON.stringify(aristaActual)
+                );
+        grafoActual.nodes[nodoPadre].linkedTo[indexArista] = newLinked;
+        setEstadoGrafo(grafoActual);
     }
 
     return (
