@@ -19,7 +19,6 @@ import { AcercaDe } from "../views/principal/AcercaDe";
 function App() {
   return (
       <ElementEstado>
-        <h3>Cristian</h3>
         <Router>
           <Routes>
             <Route path="" element={<Login />} />
