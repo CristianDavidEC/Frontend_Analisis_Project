@@ -1,13 +1,12 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import { SideBarMenu } from "../../components/elementos/SideBarHome";
-import { elementContex } from "../../app/ContextState/Estado";
 import { ModalNuevoGrafo } from "../../components/ModalNuevoGrafo/ModalNuevoGrafo";
 import { GrGraphQl } from "react-icons/gr";
 const HomePage = () => {
 
   return (
-    <div className="position-relative top-0 start-0">
+    <div className="position-relative contenido">
       <nav className="navbar navbar-dark bg-dark">
         <div className="container-fluid">
           <a className="navbar-brand">
@@ -19,7 +18,7 @@ const HomePage = () => {
         </div>
       </nav>
 
-      <div className="row">
+      <div className="row contenido">
         <SideBarMenu />
         <div className="col">
           <ModalNuevoGrafo></ModalNuevoGrafo>

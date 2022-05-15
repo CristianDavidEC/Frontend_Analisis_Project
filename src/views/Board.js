@@ -21,7 +21,7 @@ const Board = () => {
         </div>
       </nav>
 
-      <div className="row">
+      <div className="row contenido">
           <SideBarGrafo />
           <Outlet />
       </div>

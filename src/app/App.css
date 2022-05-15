@@ -43,5 +43,5 @@
 }
 
 .contenido {
-  height: 90%;
+  max-width: 100%;
 }
