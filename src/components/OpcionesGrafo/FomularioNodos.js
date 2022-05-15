@@ -8,6 +8,7 @@ const FormularioNodos = ({
     handleSubmit,
     reset,
     nodo,
+    setNodo,
     cerrar,
     operacion }) => {
 
@@ -48,6 +49,7 @@ const FormularioNodos = ({
     console.log(estadoGrafo);
     reset();
     cerrar(false);
+    setNodo({ id: null, label: null })
   }
 
   return (

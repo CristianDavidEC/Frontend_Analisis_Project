@@ -18,7 +18,9 @@ const Tablero = () => {
         <GrafoUI setEdge={setEdge} setNode={setNode} />
         <OpcionesGrafo
           selectedEdge={selectedEdge}
+          setEdge = {setEdge}
           selectedNode={selectedNode}
+          setNode = {setNode}
         />
       </div>
     </div>

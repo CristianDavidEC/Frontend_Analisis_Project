@@ -7,6 +7,7 @@ const FormulariAristas = ({
     handleSubmit,
     reset,
     edge,
+    setEdge,
     cerrar,
     operacion
 }) => {
@@ -35,21 +36,22 @@ const FormulariAristas = ({
         grafoActual.nodes[nodoFrom].linkedTo.push(edge);
         setEstadoGrafo(grafoActual);
         reset();
+        cerrar(false);
     }
 
     const editarArista = (arista) => {
         const aristaActual = {nodeId: to, distance: label};
-        console.log(aristaActual);
         const newLinked = {nodeId : to, distance : parseInt(arista.label)};
-        console.log(newLinked);
         let nodoPadre = buscarNodo(from);
-        console.log(grafoActual.nodes[nodoPadre]);
         const indexArista = grafoActual.nodes[nodoPadre].linkedTo
                 .findIndex( arista => 
                     JSON.stringify(arista) === JSON.stringify(aristaActual)
                 );
         grafoActual.nodes[nodoPadre].linkedTo[indexArista] = newLinked;
         setEstadoGrafo(grafoActual);
+        reset();
+        cerrar(false);
+        setEdge({from: null, to: null, label: null});
     }
 
     return (
@@ -83,7 +85,8 @@ const FormulariAristas = ({
                                 id="label_from"
                                 className="form-control"
                                 aria-describedby="basic-addon1"
-                                value={from}
+                                disabled = {true}
+                                defaultValue = {from}
                             />
                         )
                     }
@@ -117,7 +120,8 @@ const FormulariAristas = ({
                                 id="label_from"
                                 className="form-control"
                                 aria-describedby="basic-addon1"
-                                value={to}
+                                disabled={true}
+                                defaultValue = {to}
                             />
                         )
                     }

@@ -6,7 +6,11 @@ import { FormulariAristas } from "./FormularioAristas";
 import { elementContex } from "../../app/ContextState/Estado";
 import { useForm } from "react-hook-form";
 
-const OpcionesGrafo = ({ selectedEdge, selectedNode }) => {
+const OpcionesGrafo = ({ 
+  selectedEdge,
+  setEdge,
+  selectedNode,
+  setNode }) => {
 
   //Estado del formulario
   const {
@@ -59,6 +63,8 @@ const OpcionesGrafo = ({ selectedEdge, selectedNode }) => {
       );
       grafoActual.nodes = nodosFilter;
       setEstadoGrafo(grafoActual);
+      setNode({ id: null, label: null })
+      setEdge({ from: null, to: null, label: null })
     }
   }
 
@@ -72,6 +78,8 @@ const OpcionesGrafo = ({ selectedEdge, selectedNode }) => {
                 );
       grafoActual.nodes[nodoPadre].linkedTo = nodoFilterArista;
       setEstadoGrafo(grafoActual);
+      setEdge({ from: null, to: null, label: null })
+
     }
   }
 
@@ -128,6 +136,7 @@ const OpcionesGrafo = ({ selectedEdge, selectedNode }) => {
       {camposActiveNodo ? (
         <FormularioNodos
           nodo={selectedNode}
+          setNodo = {setNode}
           cerrar={setCamposActiveNodo}
           operacion={estadoBoton}
           register={register}
@@ -188,12 +197,13 @@ const OpcionesGrafo = ({ selectedEdge, selectedNode }) => {
       {/** Formulario de Aristas */}
       {camposActiveArista ? (
         <FormulariAristas
-          edge={selectedEdge}
-          cerrar={setCamposActiveArista}
-          operacion={estadoBotonArista}
-          register={register}
-          handleSubmit={handleSubmit}
-          reset={reset}
+          edge = {selectedEdge}
+          setEdge = {setEdge}
+          cerrar = {setCamposActiveArista}
+          operacion = {estadoBotonArista}
+          register = {register}
+          handleSubmit = {handleSubmit}
+          reset = {reset}
         />
       ) : (
         <></>
