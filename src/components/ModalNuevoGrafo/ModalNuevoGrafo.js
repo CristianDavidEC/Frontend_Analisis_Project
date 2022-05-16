@@ -1,6 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
 import { FormularioGrafo } from './FormularioGrafo';
+import { SiGraphql } from 'react-icons/si';
 
 const customStyles = {
     content: {
@@ -30,8 +31,8 @@ const customStyles = {
 
     return (
         <div>
-            <button className='btn btn-primary' onClick={openModal}>
-                Nuevo Grafo
+            <button className='btn btn-primary my-3' onClick={openModal}>
+                <SiGraphql/> Nuevo Grafo
             </button>
             <Modal
                 isOpen={modalIsOpen}

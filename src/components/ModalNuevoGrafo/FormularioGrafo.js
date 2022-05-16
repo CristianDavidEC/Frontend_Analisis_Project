@@ -1,6 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import { elementContex } from '../../app/ContextState/Estado';
+import { FaRegFileCode, FaFile, FaRandom } from 'react-icons/fa';
 
 const FormularioGrafo = ({ closeModal }) => {
     //Estado del contexto del grafo
@@ -55,12 +56,12 @@ const FormularioGrafo = ({ closeModal }) => {
             </div>
             <div className="modal-body d-grid gap-3">
                 <button className="btn btn-primary" onClick={grafoVacio}>
-                    Grafo vacío
+                    <FaFile/> Grafo vacío
                 </button>
 
                 <button className="btn btn-primary" 
                         onClick={setGrafo}>
-                    Importar
+                    <FaRegFileCode/> Importar
                 </button>
                 <div className="custom-file">
                     <input
@@ -76,7 +77,7 @@ const FormularioGrafo = ({ closeModal }) => {
                 <div className="container-sm p-5 card d-grid gap-3">
                     {/*TODO: Validaciones de los campos a seleccionar*/}
                     <button className="btn btn-primary" onClick={() => navigate('/board')}>
-                        Aleatorio
+                        <FaRandom/> Aleatorio
                     </button>
                     <div className="row">
                         <div className="col">
