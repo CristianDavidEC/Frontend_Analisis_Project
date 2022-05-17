@@ -232,7 +232,6 @@ const ListaGrafos = () => {
                       <AiFillDelete />
                     </button>
                   </div>
-
                 </div>
               </div>
             </div>
