@@ -4,6 +4,7 @@ import { BiChalkboard } from "react-icons/bi";
 import { ModalNuevoGrafo } from "../../components/ModalNuevoGrafo/ModalNuevoGrafo";
 import { GrafoGUI } from "../../components/GrafoGUI/GrafoGUI";
 import { elementContex } from "../../app/ContextState/Estado";
+import { AiFillDelete } from "react-icons/ai";
 
 //const g = ['grafo 1', 'grafo 2', 'grafo 3', 'grafo 4', 'grafo 5', 'grafo 6', 'grafo 7', 'grafo 8', 'grafo 9'];
 const data = [
@@ -216,15 +217,22 @@ const ListaGrafos = () => {
                   <h6 className="card-title text-center">
                     Numero de Nodos: {gg.nodes.length}
                   </h6>
-                  <Link
-                    to="/board"
-                    className="btn btn-dark"
-                    onClick={() => {
-                      setEstadoGrafo(gg);
-                    }}
-                  >
-                    Go to the board <BiChalkboard />
-                  </Link>
+
+                  <div className='d-flex justify-content-between'>
+                    <Link
+                      to="/board"
+                      className="btn btn-dark"
+                      onClick={() => {
+                        setEstadoGrafo(gg);
+                      }}
+                    >
+                      Go to board <BiChalkboard />
+                    </Link>
+                    <button className='btn btn-dark mx-1'>
+                      <AiFillDelete />
+                    </button>
+                  </div>
+
                 </div>
               </div>
             </div>
