@@ -69,6 +69,7 @@ const FormulariAristas = ({
                                 aria-describedby="basic-addon1"
                                 {...register(`from`, {
                                     valueAsNumber: true,
+                                    required:true
                                 })}
                             >
                                 {nodes.map((nodo) => (
@@ -103,6 +104,7 @@ const FormulariAristas = ({
                                 aria-describedby="basic-addon1"
                                 {...register(`to`, {
                                     valueAsNumber: true,
+                                    required:true
                                 })}>
                                 {nodes.map((nodo) => (
                                     <option
@@ -130,13 +132,13 @@ const FormulariAristas = ({
                 <div className="col form-group">
                     <label htmlFor="label_nodo">Weight</label>
                     <input
-                        type="text"
+                        type="number"
                         id="label_nodo"
                         className="form-control"
                         aria-label=""
                         aria-describedby="basic-addon1"
                         defaultValue={label}
-                        {...register(`label`)}
+                        {...register(`label`,{required:true})}
                     />
                 </div>
             </div>

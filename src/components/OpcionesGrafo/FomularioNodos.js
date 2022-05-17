@@ -58,13 +58,14 @@ const FormularioNodos = ({
         <div key="nodos_id_form" className="col form-group">
           <label htmlFor="id_nodo">id</label>
           <input
-            type="text"
+            type="number"
             id="id_nodo"
             className="form-control"
             defaultValue={id}
             aria-describedby="basic-addon1"
             {...register(`id`, {
               valueAsNumber: true,
+              required:true
             })}
           />
         </div>
@@ -76,7 +77,9 @@ const FormularioNodos = ({
             className="form-control"
             defaultValue={label}
             aria-describedby="basic-addon1"
-            {...register(`label`)}
+            {...register(`label`,{
+              required:true
+            })}
           />
         </div>
       </div>

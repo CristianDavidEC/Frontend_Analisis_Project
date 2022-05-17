@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const SideBarMenu = () => {
+
   return (
       <div className="col-2 mt-3 mx-3">
         <div className="card">
