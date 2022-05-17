@@ -21,7 +21,7 @@ const FormulariAristas = ({
     const { nodes } = grafoActual;
 
     const { from, to, label } = edge;
-
+        
     /**
      * Agrega una nueva arista entre dos nodos y modifica
      * 

@@ -2,6 +2,7 @@
 import React from "react";
 import Graph from "react-graph-vis";
 import { network } from "vis-network";
+import { convertirGRAFO } from "../functions/convertirJSON";
 import { elementContex } from "../../app/ContextState/Estado";
 import { opciones } from "./AjustesGrafo";
 
@@ -14,56 +15,38 @@ const GrafoUI = ({ setEdge, setNode }) => {
   const { estadoGrafo } = React.useContext(elementContex);
   //Estado de los Nodos del Grafo
   const { nodes } = estadoGrafo;
-  let bordes = [];
 
   /**
    * Mapea los nosos del estadoGrafo para darle el formato necesario
    * para renderizar en componente
    */
-  let grafoUI = {
-    nodes: nodes.map((node) => {
-      node.linkedTo.forEach((link) => {
-        bordes.push({
-          from: node.id,
-          to: link.nodeId,
-          label: "" + link.distance
-        });
-      });
-      return {
-        id: node.id,
-        label: node.id + ":" + node.label,
-      };
-    }),
-    edges: [],
-  };
-  grafoUI.edges = bordes;
+  const grafoUI = convertirGRAFO(estadoGrafo);
 
   const evento = {
     click: (event) => {
       if (event.nodes.length > 0) {
-        const nodoSelected = nodes.find(nodo => nodo.id === event.nodes[0]);
+        const nodoSelected = nodes.find((nodo) => nodo.id === event.nodes[0]);
         setNode(nodoSelected);
       } else {
         setNode({ id: null, label: null });
       }
-    }
-
-  }
+    },
+  };
 
   const interacciones = (network) => {
     network.on("click", function(params) {
       const { edges } = params;
       if (edges.length === 1) {
         const conections = network.getConnectedNodes(edges[0]);
-        const {distance} = nodes.find(nodo => nodo.id === conections[0])
-                           .linkedTo.find(arista => arista.nodeId === conections[1]);
-        setEdge({from: conections[0], to: conections[1], label: distance});
-      } 
-      else {
-        setEdge({from: null, to: null, label: null});
+        const { distance } = nodes
+          .find((nodo) => nodo.id === conections[0])
+          .linkedTo.find((arista) => arista.nodeId === conections[1]);
+        setEdge({ from: conections[0], to: conections[1], label: distance });
+      } else {
+        setEdge({ from: null, to: null, label: null });
       }
     });
-  }
+  };
 
   //Renderizado el elemento grafoUI
   return (

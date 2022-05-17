@@ -92,7 +92,7 @@ const FormularioGrafo = ({ closeModal }) => {
           <div className="row">
             <div className="col">
               <label htmlFor="option-tipo">Tipo</label>
-              <select id="option-tipo" class="form-select" defaultValue={`1`}>
+              <select id="option-tipo" className="form-select" defaultValue={`1`}>
                 <option value={`1`} disabled>elegir uno</option>
                 <option value={`2`}>completo</option>
                 <option value={`3`}>acíclico</option>
@@ -106,7 +106,7 @@ const FormularioGrafo = ({ closeModal }) => {
             <div className="col">
               <label htmlFor="cantidad_nodo">Cantidad de nodos</label>
 
-              <input id="cantidad_nodo" type="number" class="form-control" />
+              <input id="cantidad_nodo" type="number" className="form-control" />
             </div>
           </div>
           <div className="row">

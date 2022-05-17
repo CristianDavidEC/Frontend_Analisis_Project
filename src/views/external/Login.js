@@ -5,8 +5,9 @@ const Login = () => {
   const navigate = useNavigate();
 
   onsubmit = () => {
-    navigate("/home")
-  }
+    navigate("/home");
+  };
+
   return (
     <>
       <div className="container-sm  p-5 card position-absolute top-50 start-50 translate-middle">
@@ -17,11 +18,7 @@ const Login = () => {
               <label for="username_fiel" className="form-label">
                 Nombre de usuario
               </label>
-              <input
-                type="text"
-                id="username_fiel"
-                className="form-control"
-              />
+              <input type="text" id="username_fiel" className="form-control" />
             </div>
             <button type="submit" className="btn btn-primary">
               Ingresar
