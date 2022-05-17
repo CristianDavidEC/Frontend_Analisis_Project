@@ -6,6 +6,8 @@ import { GrafoGUI } from "../../components/GrafoGUI/GrafoGUI";
 import { elementContex } from "../../app/ContextState/Estado";
 import { AiFillDelete } from "react-icons/ai";
 
+import { findAllGrafos, todosGrafos } from '../../api/GrafoCRUD'
+
 //const g = ['grafo 1', 'grafo 2', 'grafo 3', 'grafo 4', 'grafo 5', 'grafo 6', 'grafo 7', 'grafo 8', 'grafo 9'];
 const data = [
   {
@@ -194,9 +196,10 @@ const data = [
   },
 ];
 
+
 const ListaGrafos = () => {
   const { setEstadoGrafo } = React.useContext(elementContex);
-
+  todosGrafos();
   return (
     <div>
       <ModalNuevoGrafo />
