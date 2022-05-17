@@ -6,7 +6,7 @@ import { SiGraphql } from 'react-icons/si';
 const customStyles = {
     content: {
         width: '500px',
-        height: '500px',
+        height: '550px',
         top: '50%',
         left: '50%',
         right: 'auto',

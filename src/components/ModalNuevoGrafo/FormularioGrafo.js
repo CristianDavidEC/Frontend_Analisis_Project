@@ -1,101 +1,131 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom';
-import { elementContex } from '../../app/ContextState/Estado';
-import { FaRegFileCode, FaFile, FaRandom } from 'react-icons/fa';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { elementContex } from "../../app/ContextState/Estado";
+import { FaRegFileCode, FaFile, FaRandom } from "react-icons/fa";
 
 const FormularioGrafo = ({ closeModal }) => {
-    //Estado del contexto del grafo
-    const {setEstadoGrafo} = React.useContext(elementContex);
-    
-    //Estado del formulario
-    const [estadoInput, setInput] = React.useState(null);
+  //Estado del contexto del grafo
+  const { setEstadoGrafo } = React.useContext(elementContex);
 
-    //Estado de la nvegacoion y manejo de rutas
-    const navigate = useNavigate();
+  //Estado del formulario
+  const [estadoInput, setInput] = React.useState(null);
 
-    //Lee la entrada de archivo y convierte a Json
-    const leerArchivo = (event) => {
-        const file = event.target.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.readAsText(file);
-            reader.onload = function () {
-                const text = reader.result;
-                const obj = JSON.parse(text);
-                setInput(obj);
-            }
-        }
+  //Estado de la nvegacoion y manejo de rutas
+  const navigate = useNavigate();
+
+  //Lee la entrada de archivo y convierte a Json
+  const leerArchivo = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.readAsText(file);
+      reader.onload = function() {
+        const text = reader.result;
+        const obj = JSON.parse(text);
+        setInput(obj);
+      };
     }
+  };
 
-    //Establece el nuevo estado del Grafo con el objeto cargado
-    const setGrafo = () => {
-        if (estadoInput){
-            setEstadoGrafo(estadoInput);
-            navigate('/board')
-        }else {
-            alert('No selecciono ningun archivo')
-        }
+  //Establece el nuevo estado del Grafo con el objeto cargado
+  const setGrafo = () => {
+    if (estadoInput) {
+      setEstadoGrafo(estadoInput);
+      navigate("/board");
+    } else {
+      alert("No selecciono ningun archivo");
     }
+  };
 
-    //Inicializa el grafo para el boton grafo Vacio
-    const grafoVacio = () => {
-        setEstadoGrafo({
-            name: '',
-            nodes: []
-        });
-        navigate('/board')
-    }
+  //Inicializa el grafo para el boton grafo Vacio
+  const grafoVacio = () => {
+    setEstadoGrafo({
+      name: "",
+      nodes: [],
+    });
+    navigate("/board");
+  };
 
-    return (
-        <div className="modal-content">
-            <div className="modal-header">
-                <h5 className="modal-title">Opciones de Creacion de grafos</h5>
-                <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={closeModal}>
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div className="modal-body d-grid gap-3">
-                <button className="btn btn-primary" onClick={grafoVacio}>
-                    <FaFile/> Grafo vacío
-                </button>
+  return (
+    <div className="modal-content">
+      <div className="modal-header">
+        <h5 className="modal-title">Opciones de Creacion de grafos</h5>
+        <button
+          type="button"
+          className="close"
+          data-dismiss="modal"
+          aria-label="Close"
+          onClick={closeModal}
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div className="modal-body d-grid gap-3">
+        <button className="btn btn-primary" onClick={grafoVacio}>
+          <FaFile /> Grafo vacío
+        </button>
 
-                <button className="btn btn-primary" 
-                        onClick={setGrafo}>
-                    <FaRegFileCode/> Importar
-                </button>
-                <div className="custom-file">
-                    <input
-                        type="file"
-                        className="custom-file-input"
-                        id="inputGroupFile01"
-                        accept=".json"
-                        onChange={leerArchivo}
-                    />
-                    <label className="custom-file-label" for="inputGroupFile01">Choose file</label>
-                </div>
-
-                <div className="container-sm p-5 card d-grid gap-3">
-                    {/*TODO: Validaciones de los campos a seleccionar*/}
-                    <button className="btn btn-primary" onClick={() => navigate('/board')}>
-                        <FaRandom/> Aleatorio
-                    </button>
-                    <div className="row">
-                        <div className="col">
-                            <select>
-                                <option>a</option>
-                                <option>a</option>
-                            </select>
-                        </div>
-                        <div className="col">
-                            <select>
-                                <option>a</option>
-                                <option>a</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <button className="btn btn-primary" onClick={setGrafo}>
+          <FaRegFileCode /> Importar
+        </button>
+        <div className="custom-file">
+          <input
+            type="file"
+            className="custom-file-input"
+            id="inputGroupFile01"
+            accept=".json"
+            onChange={leerArchivo}
+          />
+          <label className="custom-file-label" for="inputGroupFile01">
+            Choose file
+          </label>
         </div>
-    )
-}
+
+        <div className="container-sm p-5 card d-grid gap-3">
+          {/*TODO: Validaciones de los campos a seleccionar*/}
+          <button
+            className="btn btn-primary"
+            onClick={() => navigate("/board")}
+          >
+            <FaRandom /> Aleatorio
+          </button>
+          <div className="row">
+            <div className="col">
+              <label htmlFor="option-tipo">Tipo</label>
+              <select id="option-tipo" class="form-select" defaultValue={`1`}>
+                <option value={`1`} disabled>elegir uno</option>
+                <option value={`2`}>completo</option>
+                <option value={`3`}>acíclico</option>
+                <option value={`4`}>cíclico</option>
+                <option value={`5`}>nulo</option>
+                <option value={`5`}>conexo</option>
+                <option value={`6`}>denso</option>
+                <option value={`7`}>ponderado</option>
+              </select>
+            </div>
+            <div className="col">
+              <label htmlFor="cantidad_nodo">Cantidad de nodos</label>
+
+              <input id="cantidad_nodo" type="number" class="form-control" />
+            </div>
+          </div>
+          <div className="row">
+            <div className="col align-self-center">
+              <div className="form-check form-switch">
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  id="flexSwitchCheckChecked"
+                />
+                <label className="form-check-label" for="flexSwitchCheckChecked">
+                  ¿será dirigido?
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 export { FormularioGrafo };
