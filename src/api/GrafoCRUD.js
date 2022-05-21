@@ -1,23 +1,12 @@
 import axios from 'axios';
-const url = 'http://localhost:8000'
 
-//Obtiene todas las facturas
-export function findAllGrafos(callback) {
-    axios.get(url + "/grafos/")
-        .then((res) => {
-            console.log(res.data);
-            callback(res.data);
-        })
-        .catch((err) => {
-            callback(err);
-        })
-}
+const url = 'http://127.0.0.1:8000'
 
 export function todosGrafos() {
-    axios.get(`http://localhost:8000/grafos/`)
-      .then(res => {
-        const persons = res.data;
-        console.log(persons);
-      })
-  }
+    axios.get(url + '/grafos')
+        .then(res => {
+            const persons = res.data;
+            console.log(persons);
+        })
+}
 

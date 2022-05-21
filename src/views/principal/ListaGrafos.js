@@ -195,8 +195,6 @@ const data = [
     generalData3: 300,
   },
 ];
-
-
 const ListaGrafos = () => {
   const { setEstadoGrafo } = React.useContext(elementContex);
   todosGrafos();

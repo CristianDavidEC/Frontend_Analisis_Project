@@ -1,5 +1,6 @@
 {
     "name": "Grafo 2",
+    "descripcion": "Grafo 2 con 5 nodos",
     "nodes": [
       {
         "id": 1,
