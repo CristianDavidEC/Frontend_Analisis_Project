@@ -1,12 +1,15 @@
+import React from "react";
 import axios from 'axios';
 
 const url = 'http://127.0.0.1:8000'
 
-export function todosGrafos() {
+export function todosGrafos(callback) {
     axios.get(url + '/grafos')
         .then(res => {
-            const persons = res.data;
-            console.log(persons);
+            callback(res.data);
         })
+        .catch(err => {
+            console.log(err);
+        });
 }
 
