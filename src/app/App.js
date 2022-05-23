@@ -12,7 +12,7 @@ import { Tablero } from "../components/Tablero/Tablero";
 import { Aplicacion } from "../components/Aplicacion/Aplicacion";
 import { Analizar } from "../components/Analizar/Analizar";
 
-import { ListaGrafos } from "../views/principal/ListaGrafos";
+import { ListaGrafos } from "../views/principal/ListaGrafos/ListaGrafos";
 import { Ayuda } from "../views/principal/Ayuda";
 import { AcercaDe } from "../views/principal/AcercaDe";
 
