@@ -15,8 +15,6 @@ const GrafoUI = ({ setEdge, setNode }) => {
   const { estadoGrafo } = React.useContext(elementContex);
   //Estado de los Nodos del Grafo
   const { nodes } = estadoGrafo;
-  console.log(estadoGrafo);
-
   /**
    * Mapea los nosos del estadoGrafo para darle el formato necesario
    * para renderizar en componente

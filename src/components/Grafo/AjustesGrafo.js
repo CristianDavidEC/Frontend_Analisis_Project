@@ -22,13 +22,13 @@ export const opciones = {
     },
     physics: {
       forceAtlas2Based: {
-        gravitationalConstant: -26,
+        gravitationalConstant: -20,
         centralGravity: 0.005,
         springLength: 230,
         springConstant: 0.18,
         avoidOverlap: 1.5,
       },
-      maxVelocity: 146,
+      maxVelocity: 100,
       solver: "forceAtlas2Based",
       timestep: 0.35,
       stabilization: {

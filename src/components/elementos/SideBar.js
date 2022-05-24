@@ -1,6 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Dropdown } from "react-bootstrap";
+import { ModalGuardarGrafo } from '../ModalGuardarGrafo/ModalGuardarGrafo'
+
+//------------------- Iconos ------------------------------
 import { HiPhotograph } from "react-icons/hi";
 import { VscFilePdf, VscSaveAs, VscSave,
          VscHome, VscServerProcess} from "react-icons/vsc";
@@ -10,8 +13,13 @@ import { TiExport } from "react-icons/ti";
 import { AiTwotoneAppstore } from "react-icons/ai";
 
 const SideBarGrafo = () => {
+  const [modalIsOpen, setIsOpen] = React.useState(false);
   return (
     <div className="col-2 mx-3 mt-3">
+      <ModalGuardarGrafo
+        modalIsOpen={modalIsOpen}
+        setIsOpen={setIsOpen}
+      />
       <div className="card">
         <div className="container d-grid gap-1 card-body">
           <Link to="../home" className="btn btn-dark">
@@ -33,7 +41,13 @@ const SideBarGrafo = () => {
             </Dropdown.Toggle>
             <Dropdown.Menu>
               <Dropdown.Item href="#"><VscSave /> Guardar </Dropdown.Item>
-              <Dropdown.Item href="#"><VscSaveAs /> Guardar Como </Dropdown.Item>
+              
+              <Dropdown.Item 
+                href = "#"
+                onClick = { () => { setIsOpen(true) }} >
+                <VscSaveAs /> Guardar Como 
+              </Dropdown.Item>
+              
             </Dropdown.Menu>
           </Dropdown>
 
