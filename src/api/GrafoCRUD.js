@@ -22,3 +22,13 @@ export function eliminarGrafo(id) {
         });
 }
 
+export function guardarNuevoGrafo(grafoNuevo) {
+    axios.post(url + '/grafos/', grafoNuevo)
+        .then(res => {
+            console.log(res);
+        })
+        .catch(err => {
+            console.log(err);
+        });
+}
+

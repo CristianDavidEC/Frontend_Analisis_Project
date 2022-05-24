@@ -41,6 +41,7 @@ const FormularioGrafo = ({ closeModal }) => {
   const grafoVacio = () => {
     setEstadoGrafo({
       name: "",
+      descripcion: "",
       nodes: [],
     });
     navigate("/board");
