@@ -32,3 +32,13 @@ export function guardarNuevoGrafo(grafoNuevo) {
         });
 }
 
+export function guardarGrafoEditado(id, grafoEditado) {
+    axios.put(url + '/grafos/' + id, grafoEditado)
+        .then(res => {
+            console.log(res);
+        })
+        .catch(err => {
+            console.log(err);
+        });
+}
+

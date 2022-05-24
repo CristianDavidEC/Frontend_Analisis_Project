@@ -2,6 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Dropdown } from "react-bootstrap";
 import { ModalGuardarGrafo } from '../ModalGuardarGrafo/ModalGuardarGrafo'
+import { elementContex } from '../../app/ContextState/Estado'
+import { guardarGrafoEditado } from '../../api/GrafoCRUD'
+
 
 //------------------- Iconos ------------------------------
 import { HiPhotograph } from "react-icons/hi";
@@ -13,7 +16,21 @@ import { TiExport } from "react-icons/ti";
 import { AiTwotoneAppstore } from "react-icons/ai";
 
 const SideBarGrafo = () => {
+
   const [modalIsOpen, setIsOpen] = React.useState(false);
+
+  const { estadoGrafo } = React.useContext(elementContex);
+
+  const editarGrafo = () => {
+    const existId = Object.prototype.hasOwnProperty.call(estadoGrafo, 'id');
+    if (existId) {
+      guardarGrafoEditado(estadoGrafo.id, estadoGrafo);
+    }
+    else {
+      alert('El grafo aun no esta en nuestra base de datos, primero Guardar Como');
+    }
+  }
+
   return (
     <div className="col-2 mx-3 mt-3">
       <ModalGuardarGrafo
@@ -40,7 +57,11 @@ const SideBarGrafo = () => {
               <VscSave /> Guardar
             </Dropdown.Toggle>
             <Dropdown.Menu>
-              <Dropdown.Item href="#"><VscSave /> Guardar </Dropdown.Item>
+              <Dropdown.Item 
+                href = "#"
+                onClick = {editarGrafo}>
+                <VscSave /> Guardar 
+              </Dropdown.Item>
               
               <Dropdown.Item 
                 href = "#"
@@ -66,5 +87,4 @@ const SideBarGrafo = () => {
     </div>
   );
 }
-
 export { SideBarGrafo };
